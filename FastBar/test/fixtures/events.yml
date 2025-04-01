@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  name: MyString
+  description: MyText
+  start_datetime: 2025-04-01 22:26:44
+  end_datetime: 2025-04-01 22:26:44
+  event_type: MyString
+  is_publicly_accessible: false
+
+two:
+  company: two
+  name: MyString
+  description: MyText
+  start_datetime: 2025-04-01 22:26:44
+  end_datetime: 2025-04-01 22:26:44
+  event_type: MyString
+  is_publicly_accessible: false

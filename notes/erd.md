@@ -20,6 +20,7 @@ entity Role {
   * id : int <<PK>>
   --
   name : string
+  description : string
 }
 
 entity UserRole {

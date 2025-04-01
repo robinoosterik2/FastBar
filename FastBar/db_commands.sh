@@ -1,3 +1,4 @@
+#!/bin/bash
 # === User Related ===
 
 rails generate model User username:string:uniq email:string:index:uniq password_digest:string first_name:string last_name:string balance:decimal date_of_birth:date last_login:datetime is_active:boolean

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bar: one
+  event: one
+  date: 2025-04-01
+  open_time: 2025-04-01 22:26:43
+  close_time: 2025-04-01 22:26:43
+
+two:
+  bar: two
+  event: two
+  date: 2025-04-01
+  open_time: 2025-04-01 22:26:43
+  close_time: 2025-04-01 22:26:43

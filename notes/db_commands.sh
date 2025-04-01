@@ -1,8 +1,9 @@
+#!/bin/bash
 # === User Related ===
 
-rails generate model User username:string:uniq email:string:index:uniq password_digest:string first_name:string last_name:string balance:decimal date_of_birth:date last_login:datetime is_active:boolean
+rails generate model User username:string:uniq email:string:uniq password_digest:string first_name:string last_name:string balance:decimal date_of_birth:date last_login:datetime is_active:boolean
 
-rails generate model Role name:string:index:uniq description:text
+rails generate model Role name:string:uniq description:text
 
 # Join table for User <-> Role (Many-to-Many)
 # Manually add unique index if needed: add_index :user_roles, [:user_id, :role_id], unique: true
@@ -14,7 +15,7 @@ rails generate model BarKeeper user:references bar:references{null} company:refe
 
 # === Company and Bar Related ===
 
-rails generate model Company name:string:uniq address:string phone_number:string email:string:uniq
+rails generate model Company name:string:uniq address:string phone_number:string email:string
 
 rails generate model Bar company:references name:string location:string
 
