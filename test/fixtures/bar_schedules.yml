@@ -23,11 +23,11 @@
 one:
   bar: one
   day_of_week: 1
-  open_time: 2025-04-01 22:26:43
-  close_time: 2025-04-01 22:26:43
+  open_time: 2025-04-01 23:27:35
+  close_time: 2025-04-01 23:27:35
 
 two:
   bar: two
   day_of_week: 1
-  open_time: 2025-04-01 22:26:43
-  close_time: 2025-04-01 22:26:43
+  open_time: 2025-04-01 23:27:35
+  close_time: 2025-04-01 23:27:35

@@ -36,7 +36,7 @@ rails generate model Event company:references name:string description:text start
 # Note: 'date' renamed to 'order_date'
 # REMEMBER: Manually edit migration to add 'null: true' for the 'barkeeper' reference!
 # Note: 'status' uses string. Consider Rails enums in the model.
-rails generate model Order user:references bar:references barkeeper:references{null} order_date:datetime total_price:decimal status:string
+rails generate model Order user:references bar:references bar_keeper:references{null} order_date:datetime total_price:decimal status:string
 
 # Join table for Order <-> Product (Many-to-Many)
 # Manually add unique index if needed: add_index :order_items, [:order_id, :product_id], unique: true

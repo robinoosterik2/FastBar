@@ -7,13 +7,12 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  role_id     :integer          not null
-#  user_id     :integer
+#  user_id     :integer          not null
 #
 # Indexes
 #
-#  index_user_roles_on_role_id              (role_id)
-#  index_user_roles_on_user_id              (user_id)
-#  index_user_roles_on_user_id_and_role_id  (user_id,role_id) UNIQUE
+#  index_user_roles_on_role_id  (role_id)
+#  index_user_roles_on_user_id  (user_id)
 #
 # Foreign Keys
 #

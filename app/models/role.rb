@@ -10,7 +10,7 @@
 #
 # Indexes
 #
-#  index_roles_on_name  (name) UNIQUE
+#  index_roles_on_name  (name)
 #
 class Role < ApplicationRecord
 end

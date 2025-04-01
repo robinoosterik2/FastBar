@@ -5,7 +5,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  balance         :decimal(10, 2)
+#  balance         :decimal(, )
 #  date_of_birth   :date
 #  email           :string
 #  first_name      :string
@@ -30,7 +30,7 @@ one:
   last_name: MyString
   balance: 9.99
   date_of_birth: 2025-04-01
-  last_login: 2025-04-01 22:26:38
+  last_login: 2025-04-01 23:27:31
   is_active: false
 
 two:
@@ -41,5 +41,5 @@ two:
   last_name: MyString
   balance: 9.99
   date_of_birth: 2025-04-01
-  last_login: 2025-04-01 22:26:38
+  last_login: 2025-04-01 23:27:31
   is_active: false

@@ -12,7 +12,8 @@
 #
 # Indexes
 #
-#  index_companies_on_name  (name) UNIQUE
+#  index_companies_on_email  (email) UNIQUE
+#  index_companies_on_name   (name) UNIQUE
 #
 class Company < ApplicationRecord
 end

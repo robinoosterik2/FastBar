@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  balance         :decimal(10, 2)
+#  balance         :decimal(, )
 #  date_of_birth   :date
 #  email           :string
 #  first_name      :string

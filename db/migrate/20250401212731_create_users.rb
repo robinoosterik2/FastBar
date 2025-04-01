@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[8.0]
       t.string :password_digest
       t.string :first_name
       t.string :last_name
-      t.decimal :balance, precision: 10, scale: 2
+      t.decimal :balance
       t.date :date_of_birth
       t.datetime :last_login
       t.boolean :is_active
