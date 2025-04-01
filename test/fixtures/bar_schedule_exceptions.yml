@@ -27,12 +27,12 @@ one:
   bar: one
   event: one
   date: 2025-04-01
-  open_time: 2025-04-01 23:27:36
-  close_time: 2025-04-01 23:27:36
+  open_time: 2025-04-01 23:56:52
+  close_time: 2025-04-01 23:56:52
 
 two:
   bar: two
   event: two
   date: 2025-04-01
-  open_time: 2025-04-01 23:27:36
-  close_time: 2025-04-01 23:27:36
+  open_time: 2025-04-01 23:56:52
+  close_time: 2025-04-01 23:56:52

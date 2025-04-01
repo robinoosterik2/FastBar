@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: bar_keepers
+# Table name: barkeepers
 #
 #  id         :integer          not null, primary key
 #  salary     :decimal(, )
@@ -13,9 +13,9 @@
 #
 # Indexes
 #
-#  index_bar_keepers_on_bar_id      (bar_id)
-#  index_bar_keepers_on_company_id  (company_id)
-#  index_bar_keepers_on_user_id     (user_id)
+#  index_barkeepers_on_bar_id      (bar_id)
+#  index_barkeepers_on_company_id  (company_id)
+#  index_barkeepers_on_user_id     (user_id)
 #
 # Foreign Keys
 #
@@ -25,7 +25,7 @@
 #
 require "test_helper"
 
-class BarKeeperTest < ActiveSupport::TestCase
+class BarkeeperTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

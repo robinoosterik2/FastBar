@@ -10,7 +10,7 @@
 #  open_time   :time
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  bar_id      :integer          not null
+#  bar_id      :integer
 #
 # Indexes
 #
@@ -23,11 +23,11 @@
 one:
   bar: one
   day_of_week: 1
-  open_time: 2025-04-01 23:27:35
-  close_time: 2025-04-01 23:27:35
+  open_time: 2025-04-01 23:56:52
+  close_time: 2025-04-01 23:56:52
 
 two:
   bar: two
   day_of_week: 1
-  open_time: 2025-04-01 23:27:35
-  close_time: 2025-04-01 23:27:35
+  open_time: 2025-04-01 23:56:52
+  close_time: 2025-04-01 23:56:52

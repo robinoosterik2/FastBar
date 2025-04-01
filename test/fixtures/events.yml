@@ -27,8 +27,8 @@ one:
   company: one
   name: MyString
   description: MyText
-  start_datetime: 2025-04-01 23:27:37
-  end_datetime: 2025-04-01 23:27:37
+  start_datetime: 2025-04-01 23:56:53
+  end_datetime: 2025-04-01 23:56:53
   event_type: MyString
   is_publicly_accessible: false
 
@@ -36,7 +36,7 @@ two:
   company: two
   name: MyString
   description: MyText
-  start_datetime: 2025-04-01 23:27:37
-  end_datetime: 2025-04-01 23:27:37
+  start_datetime: 2025-04-01 23:56:53
+  end_datetime: 2025-04-01 23:56:53
   event_type: MyString
   is_publicly_accessible: false

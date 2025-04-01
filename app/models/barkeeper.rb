@@ -1,8 +1,6 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 # == Schema Information
 #
-# Table name: bar_keepers
+# Table name: barkeepers
 #
 #  id         :integer          not null, primary key
 #  salary     :decimal(, )
@@ -15,9 +13,9 @@
 #
 # Indexes
 #
-#  index_bar_keepers_on_bar_id      (bar_id)
-#  index_bar_keepers_on_company_id  (company_id)
-#  index_bar_keepers_on_user_id     (user_id)
+#  index_barkeepers_on_bar_id      (bar_id)
+#  index_barkeepers_on_company_id  (company_id)
+#  index_barkeepers_on_user_id     (user_id)
 #
 # Foreign Keys
 #
@@ -25,16 +23,8 @@
 #  company_id  (company_id => companies.id)
 #  user_id     (user_id => users.id)
 #
-one:
-  user: one
-  bar: one
-  company: one
-  working: false
-  salary: 9.99
-
-two:
-  user: two
-  bar: two
-  company: two
-  working: false
-  salary: 9.99
+class Barkeeper < ApplicationRecord
+  belongs_to :user
+  belongs_to :bar
+  belongs_to :company
+end

@@ -19,7 +19,7 @@
 #
 # Indexes
 #
-#  index_users_on_email     (email) UNIQUE
+#  index_users_on_email     (email)
 #  index_users_on_username  (username) UNIQUE
 #
 one:
@@ -30,7 +30,7 @@ one:
   last_name: MyString
   balance: 9.99
   date_of_birth: 2025-04-01
-  last_login: 2025-04-01 23:27:31
+  last_login: 2025-04-01 23:56:47
   is_active: false
 
 two:
@@ -41,5 +41,5 @@ two:
   last_name: MyString
   balance: 9.99
   date_of_birth: 2025-04-01
-  last_login: 2025-04-01 23:27:31
+  last_login: 2025-04-01 23:56:47
   is_active: false

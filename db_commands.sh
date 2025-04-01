@@ -9,9 +9,9 @@ rails generate model Role name:string:index:uniq description:text
 # Manually add unique index if needed: add_index :user_roles, [:user_id, :role_id], unique: true
 rails generate model UserRole user:references role:references assigned_at:datetime
 
-# BarKeeper belongs to User, Company, and potentially Bar
+# Barkeeper belongs to User, Company, and potentially Bar
 # REMEMBER: Manually edit migration to add 'null: true' for the 'bar' reference!
-rails generate model BarKeeper user:references bar:references{null} company:references working:boolean salary:decimal
+rails generate model Barkeeper user:references bar:references{null} company:references working:boolean salary:decimal
 
 # === Company and Bar Related ===
 
@@ -32,11 +32,11 @@ rails generate model Event company:references name:string description:text start
 
 # === Order and Product Related ===
 
-# Orders placed by Users at Bars, potentially handled by BarKeepers
+# Orders placed by Users at Bars, potentially handled by Barkeepers
 # Note: 'date' renamed to 'order_date'
 # REMEMBER: Manually edit migration to add 'null: true' for the 'barkeeper' reference!
 # Note: 'status' uses string. Consider Rails enums in the model.
-rails generate model Order user:references bar:references bar_keeper:references{null} order_date:datetime total_price:decimal status:string
+rails generate model Order user:references bar:references barkeeper:references{null} order_date:datetime total_price:decimal status:string
 
 # Join table for Order <-> Product (Many-to-Many)
 # Manually add unique index if needed: add_index :order_items, [:order_id, :product_id], unique: true

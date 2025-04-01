@@ -25,5 +25,10 @@ bin/rails db:create
 echo "===> Re-running model generators..."
 ./db_commands.sh
 
+echo " MAKE SURE TO EDIT MIGRATIONS TO INCLUDE 'null: true' "
+echo "bar reference barkeepers.rb"
+echo "bar reference bar_schedule.rb"
+echo "event reference bar_schedule_exceptions.rb"
+echo "barkeeper reference order.rb"
 echo "===> Done. Now you can run:"
 echo "    bin/rails db:migrate"

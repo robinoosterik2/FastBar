@@ -8,7 +8,7 @@
 #  open_time   :time
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  bar_id      :integer          not null
+#  bar_id      :integer
 #
 # Indexes
 #

@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_01_212743) do
-  create_table "bar_keepers", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "bar_id"
-    t.integer "company_id", null: false
-    t.boolean "working"
-    t.decimal "salary"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["bar_id"], name: "index_bar_keepers_on_bar_id"
-    t.index ["company_id"], name: "index_bar_keepers_on_company_id"
-    t.index ["user_id"], name: "index_bar_keepers_on_user_id"
-  end
-
+ActiveRecord::Schema[8.0].define(version: 2025_04_01_215659) do
   create_table "bar_schedule_exceptions", force: :cascade do |t|
     t.integer "bar_id", null: false
     t.integer "event_id"
@@ -37,13 +24,26 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_01_212743) do
   end
 
   create_table "bar_schedules", force: :cascade do |t|
-    t.integer "bar_id", null: false
+    t.integer "bar_id"
     t.integer "day_of_week"
     t.time "open_time"
     t.time "close_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bar_id"], name: "index_bar_schedules_on_bar_id"
+  end
+
+  create_table "barkeepers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "bar_id"
+    t.integer "company_id", null: false
+    t.boolean "working"
+    t.decimal "salary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bar_id"], name: "index_barkeepers_on_bar_id"
+    t.index ["company_id"], name: "index_barkeepers_on_company_id"
+    t.index ["user_id"], name: "index_barkeepers_on_user_id"
   end
 
   create_table "bars", force: :cascade do |t|
@@ -92,14 +92,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_01_212743) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "bar_id", null: false
-    t.integer "bar_keeper_id"
+    t.integer "barkeeper_id"
     t.datetime "order_date"
     t.decimal "total_price"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bar_id"], name: "index_orders_on_bar_id"
-    t.index ["bar_keeper_id"], name: "index_orders_on_bar_keeper_id"
+    t.index ["barkeeper_id"], name: "index_orders_on_barkeeper_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -151,21 +151,21 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_01_212743) do
     t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "bar_keepers", "bars"
-  add_foreign_key "bar_keepers", "companies"
-  add_foreign_key "bar_keepers", "users"
   add_foreign_key "bar_schedule_exceptions", "bars"
   add_foreign_key "bar_schedule_exceptions", "events"
   add_foreign_key "bar_schedules", "bars"
+  add_foreign_key "barkeepers", "bars"
+  add_foreign_key "barkeepers", "companies"
+  add_foreign_key "barkeepers", "users"
   add_foreign_key "bars", "companies"
   add_foreign_key "events", "companies"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
-  add_foreign_key "orders", "bar_keepers"
+  add_foreign_key "orders", "barkeepers"
   add_foreign_key "orders", "bars"
   add_foreign_key "orders", "users"
   add_foreign_key "stocks", "bars"
