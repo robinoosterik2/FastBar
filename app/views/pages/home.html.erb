@@ -1,5 +1,4 @@
 <div class="text-4xl">Welcome to Our Website</div>
 <p>This site helps you explore great features of our app.</p>
 <p>Built with Ruby on Rails.</p>
-<%= render ButtonComponent.new(text: "Save", variant: :primary) %>
-<%= render ButtonComponent.new(text: "Cancel", variant: :secondary) %>
+<%= render ButtonComponent.new(text: "Log click", variant: :primary, path: log_click_path) %>
