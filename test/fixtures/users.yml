@@ -34,8 +34,8 @@ one:
   is_active: false
 
 two:
-  username: MyString
-  email: MyString
+  username: MyString2
+  email: MyString2
   password_digest: MyString
   first_name: MyString
   last_name: MyString

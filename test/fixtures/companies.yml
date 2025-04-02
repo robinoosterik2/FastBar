@@ -7,7 +7,7 @@
 #  id           :integer          not null, primary key
 #  address      :string
 #  email        :string
-#  name         :string
+#  name         :string           not null
 #  phone_number :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -24,7 +24,7 @@ one:
   email: MyString
 
 two:
-  name: MyString
-  address: MyString
-  phone_number: MyString
-  email: MyString
+  name: MyString2
+  address: MyString2
+  phone_number: MyString2
+  email: MyString2

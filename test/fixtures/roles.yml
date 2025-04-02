@@ -19,5 +19,5 @@ one:
   description: MyText
 
 two:
-  name: MyString
-  description: MyText
+  name: MyString2
+  description: MyText2
