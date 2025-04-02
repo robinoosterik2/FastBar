@@ -1,1 +1,11 @@
-<%= link_to text, path, class: classes, data: { turbo_method: :post } %>
+<%= link_to path, class: classes, data: { turbo_method: :post } do %>
+  <% if icon_position == :start %>
+    <%= render_icon %>
+    <span class="pl-6"><%= text %></span>
+  <% elsif icon_position == :end %>
+    <span class="pr-6"><%= text %></span>
+    <%= render_icon %>
+  <% else %>
+    <%= text %>
+  <% end %>
+<% end %>
