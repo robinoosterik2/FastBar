@@ -66,3 +66,6 @@ gem "tailwindcss-ruby", "~> 4.0"
 
 gem "tailwindcss-rails", "~> 4.2"
 gem "view_component"
+gem "phlex-rails", "~> 2.1"
+
+gem "tailwind_merge", "~> 1.1"
