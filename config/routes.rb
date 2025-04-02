@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get "pages/home"
+  get "home/home"
+  namespace :dashboard do
+    get "login/index"
+  end
+  get "dashboard/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -12,6 +16,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root "pages#home"
-  post "log_click", to: "pages#log_click", as: :log_click
+  root "home#home"
+  get "about", to: "home#about"
+  get "services", to: "home#services"
+  get "contact", to: "home#contact"
+  resources :users
+  get "/dashboard", to: "dashboard/login#index"
 end

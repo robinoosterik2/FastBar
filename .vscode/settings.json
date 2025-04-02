@@ -8,8 +8,13 @@
     "files.associations": {
         "*.html.erb": "erb"
     },
-    "emmet.includeLanguages": {
-        "*.html.erb": "html",
-        "erb": "html"
+    "editor.formatOnSave": true,
+    "rubyLsp.formatter": "rubocop",
+    "[erb]": {
+        "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+        "editor.formatOnSave": true
     },
+    "vscode-erb-beautify.ignoreFormatFilePatterns": [
+        "**/email_templates/**/*.erb"
+    ]
 }

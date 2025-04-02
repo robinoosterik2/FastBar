@@ -1,0 +1,11 @@
+<!-- app/components/tab_component.html.erb -->
+<div class="w-full">
+  <nav class="flex flex-wrap justify-center lg:justify-start space-x-2 md:space-x-4" aria-label="Tabs">
+    <% tabs.each do |tab| %>
+      <%= link_to tab[:label],
+          tab[:path],
+          class: tab_class(tab[:id]),
+          data: { turbo_frame: tab[:turbo_frame] }.compact %>
+    <% end %>
+  </nav>
+</div>

@@ -1,0 +1,23 @@
+<%= render HomeComponent.new(active_tab: "Home") do |layout| %>
+  <% layout.with_pageContent do %>
+    <div class="text-4xl">Welcome to Our Website</div>
+    <p>This site helps you explore great features of our app.</p>
+    <p>Built with Ruby on Rails.</p>
+    <%= render ButtonComponent.new(
+      text: "Save",
+      variant: :primary,
+      icon: "fa fa-save",
+      icon_position: :start
+    ) %>
+    <%= render ButtonComponent.new(
+      text: "Next",
+      variant: :secondary,
+      icon: "fa fa-check",
+      icon_position: :end
+    ) %>
+    <%= render ButtonComponent.new(
+      text: "Cancel",
+      variant: :warning
+    ) %>
+  <% end %>
+<% end %>

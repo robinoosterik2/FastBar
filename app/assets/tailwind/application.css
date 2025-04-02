@@ -3,18 +3,19 @@
 
 /* :root { */
 @theme {
-    --color-primary: #58b368; /* Primary color */
-    --color-secondary: #a2bebb; /* Secondary color */
-    --color-background: #f2fff1; /* Background color */
-    --color-text: #FFFFFF; /* Text color */
-    --color-text-muted: #B0B0B0; /* Muted text color */
-    --color-border: #454d66; /* Border color */
-    --color-success: #00ff88; /* Success color */
-    --color-warning: #F9C74F; /* Warning color */
-    --color-error: #D62828; /* Error color */
+    --color-primary: #58b368;
+    --color-secondary: #a2bebb;
+    --color-background: #f2fff1;
+    --color-header: #2a2d3b;
+    --color-text: #ffffff;
+    --color-text-muted: #B0B0B0;
+    --color-border: #454d66;
+    --color-success: #00ff88;
+    --color-warning: #F9C74F;
+    --color-error: #D62828;
 }
 
 /* add background color to whole html */
 html {
-    background-color: var(--color-background);
+    background-color: #f3f4f6;
 }

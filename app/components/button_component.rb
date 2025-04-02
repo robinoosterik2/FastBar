@@ -13,7 +13,7 @@ class ButtonComponent < ViewComponent::Base
   end
 
   def classes
-    base = "mx-2 px-4 rounded font-semibold focus:outline-none flex items-center justify-center hover:scale-105 text-text transition-all duration-200 ease-in-out hover:shadow-lg relative"
+    base = "mx-2 px-4 py-1 rounded font-semibold focus:outline-none flex items-center justify-center hover:scale-105 text-text transition-all duration-200 ease-in-out hover:shadow-lg relative"
     variant_classes = {
       primary: "bg-primary",
       secondary: "bg-secondary",
