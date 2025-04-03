@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get "services", to: "home#services"
     get "contact", to: "home#contact"
     resources :users
-    get "/dashboard", to: "dashboard/login#index"
+    get "dashboard", to: "dashboard/login#index"
   end
 
   # Redirect requests without a locale to include the default locale
