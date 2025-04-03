@@ -10,7 +10,15 @@ class HomeController < ApplicationController
 
   def services
     @active_tab = "Services"
-    render :services
+
+    if params[:query].present?
+      @companies = Company
+        .where("LOWER(name) LIKE ?", "%#{params[:query].strip.downcase}%")
+        .limit(10)
+
+    else
+      @companies = []
+    end
   end
 
   def contact

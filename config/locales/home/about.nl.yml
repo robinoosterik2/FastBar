@@ -1,0 +1,21 @@
+nl:
+  about:
+    title: "Over Ons"
+    description: "FastBar is jouw oplossing voor snel, eenvoudig en veilig drankjes bestellen op drukke locaties. Ik geloof dat een avondje uit draait om plezier — niet om in de rij staan."
+    mission:
+      title: "Onze Missie"
+      description1: "Ik ben FastBar gestart om het meest frustrerende deel van een avondje uit te elimineren — eindeloos wachten om geholpen te worden. Met ons mobile-first platform kun je je favoriete drankjes in seconden bestellen en krijg je een melding zodra ze klaar zijn."
+      description2: "Ik werk aan dit project buiten schooltijd. Dit project is een geweldige kans voor mij om te leren en te groeien als ontwikkelaar. Met geweldige mentale steun van mijn vriendin rechts op de foto."
+    core_values:
+      title: "Waar Wij Voor Staan"
+      values:
+        - title: "Snelheid"
+          description: "Elke seconde telt. We maken bestellen snel en eenvoudig voor zowel jou als het barpersoneel."
+        - title: "Veiligheid"
+          description: "We gebruiken veilige betalingen om ervoor te zorgen dat jouw gegevens en geld veilig blijven."
+        - title: "Gemeenschap"
+          description: "We werken nauw samen met locaties om jouw avondje uit — en die van hen — te verbeteren."
+    cta:
+      title: "Doe Mee en verander het uitgaansleven"
+      description: "Klaar om van een avondje uit meer plezier en minder frustratie te maken? Laten we het samen doen."
+      button: "Neem Contact Op"

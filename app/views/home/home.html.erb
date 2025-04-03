@@ -1,23 +1,37 @@
-<%= render HomeComponent.new(active_tab: "Home") do |layout| %>
+<%= render Home::HomeComponent.new(active_tab: "Home") do |layout| %>
   <% layout.with_pageContent do %>
-    <div class="text-4xl">Welcome to Our Website</div>
-    <p>This site helps you explore great features of our app.</p>
-    <p>Built with Ruby on Rails.</p>
-    <%= render ButtonComponent.new(
-      text: "Save",
-      variant: :primary,
-      icon: "fa fa-save",
-      icon_position: :start
-    ) %>
-    <%= render ButtonComponent.new(
-      text: "Next",
-      variant: :secondary,
-      icon: "fa fa-check",
-      icon_position: :end
-    ) %>
-    <%= render ButtonComponent.new(
-      text: "Cancel",
-      variant: :warning
-    ) %>
+    <div class="flex flex-col w-full items-center text-center">
+      <!-- Hero Section -->
+      <div class="mb-16 max-w-3xl">
+        <h1 class="text-5xl font-bold text-primary mb-4"><%= t("home.hero.title") %></h1>
+        <p class="text-xl text-gray-700"><%= t("home.hero.subtitle") %></p>
+      </div>
+      <!-- Two-Column CTA Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-5xl">
+        <!-- For Users -->
+        <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center">
+          <h2 class="text-2xl font-bold text-primary mb-4"><%= t("home.users.title") %></h2>
+          <p class="mb-6"><%= t("home.users.description") %></p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#" class="bg-primary text-white font-bold py-3 px-6 rounded-lg flex items-center">
+              <i class="fa-brands fa-apple mr-2 text-xl"></i>
+              <%= t("home.users.apple_button") %>
+            </a>
+            <a href="#" class="bg-primary text-white font-bold py-3 px-6 rounded-lg flex items-center">
+              <i class="fa-brands fa-google-play mr-2 text-xl"></i>
+              <%= t("home.users.google_button") %>
+            </a>
+          </div>
+        </div>
+        <!-- For Bar/Club Owners -->
+        <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center">
+          <h2 class="text-2xl font-bold text-primary mb-4"><%= t("home.owners.title") %></h2>
+          <p class="mb-6"><%= t("home.owners.description") %></p>
+          <a href="/register" class="bg-primary text-white font-bold py-3 px-6 rounded-lg inline-block">
+            <i class="fa-solid fa-door-open mr-2"></i> <%= t("home.owners.button") %>
+          </a>
+        </div>
+      </div>
+    </div>
   <% end %>
 <% end %>

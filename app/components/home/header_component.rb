@@ -1,4 +1,4 @@
-class HeaderComponent < ViewComponent::Base
+class Home::HeaderComponent < ViewComponent::Base
   attr_reader :active_tab
 
   def initialize(active_tab:)

@@ -1,4 +1,4 @@
-class HomeComponent < ViewComponent::Base
+class Home::HomeComponent < ViewComponent::Base
   renders_one :pageContent
 
   attr_reader :active_tab

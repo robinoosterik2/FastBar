@@ -1,0 +1,21 @@
+en:
+  about:
+    title: "About Us"
+    description: "FastBar is your go-to solution for fast, easy, and secure drink ordering at crowded venues. I believe your night out should be about fun — not waiting in line."
+    mission:
+      title: "Our Mission"
+      description1: "I started FastBar to eliminate the most frustrating part of a night out — waiting forever to get served. With our mobile-first platform, you can order your favorite drinks in seconds and get notified the moment they're ready." 
+      description2: "I am working on this project outside of school. This project is a great opportunity for me to learn and grow as a developer. With great mental support from my girlfriend on the photo right."
+    core_values:
+      title: "What We Stand For"
+      values:
+        - title: "Speed"
+          description: "Every second counts. We make ordering fast and painless for both you and the bar staff."
+        - title: "Security"
+          description: "We use secure payment systems to make sure your data and your money stay safe."
+        - title: "Community"
+          description: "We work closely with venues to improve your night out — and theirs too."
+    cta:
+      title: "Join Us in Changing the Nightlife Experience"
+      description: "Ready to make nights out more fun and less frustrating? Let's do it together."
+      button: "Get in Touch"
