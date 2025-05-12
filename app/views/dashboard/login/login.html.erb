@@ -1,0 +1,32 @@
+<div class="flex flex-col items-center">
+  <div class="logo text-center mx-0">
+    <%= link_to root_path do %>
+      <%= image_tag "FastBarLogo.png", alt: "FastBar Logo", class: "h-20 lg:h-24" %>
+    <% end %>
+  </div>
+  <div class="w-full max-w-sm sm:max-w-md mx-auto mt-10 bg-white shadow-md rounded-lg px-4 sm:px-8 py-6">
+    <h2 class="text-2xl font-semibold text-center text-primary mb-6"><%= t("home.login") %></h2>
+    <%= form_with url: dashboard_login_path(locale: I18n.locale), method: :post, local: true do |f| %>
+      <%= render TextInputComponent.new(form: f, field: :email, input_type: :email_field) %>
+      <%= render TextInputComponent.new(form: f, field: :password, input_type: :password_field) %>
+      <div class="flex justify-center">
+        <%= render ButtonComponent.new(
+				text: t("home.login"),
+				variant: :primary,
+				icon: "fa-solid fa-user",
+				icon_position: :start
+			) %>
+      </div>
+    <% end %>
+    <% if notice %>
+      <div class="mt-4 p-3 bg-green-100 text-green-700 rounded text-center">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="mt-4 p-3 bg-red-100 text-red-700 rounded text-center">
+        <%= alert %>
+      </div>
+    <% end %>
+  </div>
+</div>

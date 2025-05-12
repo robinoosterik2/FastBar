@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "test/test"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   get "up" => "rails/health#show", as: :rails_health_check
 
@@ -10,17 +11,23 @@ Rails.application.routes.draw do
   scope "/:locale", locale: /en|nl/ do
     get "home/home"
     namespace :dashboard do
-      get "login/index"
-    end
-    get "dashboard/index"
+      get "login", to: "login#login"
+      post "login", to: "login#create_session"
+      delete "logout", to: "login#destroy_session"
+
+      get "register", to: "register#new"
+      post "register", to: "register#create"
+      get "confirm_email", to: "dashboard/register#confirm_email", as: :confirm_dashboard_email
+      post "resend_confirmation", to: "dashboard/register#resend_confirmation", as: :resend_dashboard_confirmation
+  end
     # Defines the root path route ("/")
     # root "posts#index"
     root "home#home"
     get "about", to: "home#about"
     get "services", to: "home#services"
     get "contact", to: "home#contact"
+    get "test", to: "test#test"
     resources :users
-    get "dashboard", to: "dashboard/login#index"
   end
 
   # Redirect requests without a locale to include the default locale

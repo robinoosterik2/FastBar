@@ -2,18 +2,21 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  balance         :decimal(, )
-#  date_of_birth   :date
-#  email           :string
-#  first_name      :string
-#  is_active       :boolean
-#  last_login      :datetime
-#  last_name       :string
-#  password_digest :string
-#  username        :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                   :integer          not null, primary key
+#  balance              :decimal(, )
+#  confirmation_sent_at :datetime
+#  confirmation_token   :string
+#  confirmed_at         :datetime
+#  date_of_birth        :date
+#  email                :string
+#  first_name           :string
+#  is_active            :boolean
+#  last_login           :datetime
+#  last_name            :string
+#  password_digest      :string
+#  username             :string
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
 #
 # Indexes
 #

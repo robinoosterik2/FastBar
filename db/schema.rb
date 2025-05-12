@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_01_215659) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_04_113644) do
   create_table "bar_schedule_exceptions", force: :cascade do |t|
     t.integer "bar_id", null: false
     t.integer "event_id"
@@ -151,6 +151,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_01_215659) do
     t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.index ["email"], name: "index_users_on_email"
     t.index ["username"], name: "index_users_on_username", unique: true
   end

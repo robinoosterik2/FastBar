@@ -72,4 +72,8 @@ Rails.application.configure do
   config.hosts << /.*\.ngrok-free\.app/
   # allow host that end in loca.lt/
   config.hosts << /.*\.loca\.lt/
+
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.delivery_method = :letter_opener # or :smtp
+  config.action_mailer.perform_deliveries = true
 end

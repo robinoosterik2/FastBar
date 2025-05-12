@@ -1,4 +1,4 @@
-<%= link_to path, class: classes, data: { turbo_method: :post } do %>
+<%= link_to path, class: classes, data: turbo_data do %>
   <% if icon_position == :start %>
     <%= render_icon %>
     <span class="pl-6"><%= text %></span>

@@ -13,23 +13,26 @@
           <h2 class="text-2xl font-bold text-primary mb-4"><%= t("home.users.title") %></h2>
           <p class="mb-6"><%= t("home.users.description") %></p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#" class="bg-primary text-white font-bold py-3 px-6 rounded-lg flex items-center">
-              <i class="fa-brands fa-apple mr-2 text-xl"></i>
-              <%= t("home.users.apple_button") %>
-            </a>
-            <a href="#" class="bg-primary text-white font-bold py-3 px-6 rounded-lg flex items-center">
-              <i class="fa-brands fa-google-play mr-2 text-xl"></i>
-              <%= t("home.users.google_button") %>
-            </a>
+            <%= render ButtonComponent.new(
+                  text: t("home.login"),
+                  path: dashboard_login_path(locale: I18n.locale),
+                  icon: "fa-solid fa-user",
+                  icon_position: :start,
+                  variant: :primary
+                ) %>
           </div>
         </div>
         <!-- For Bar/Club Owners -->
         <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center">
           <h2 class="text-2xl font-bold text-primary mb-4"><%= t("home.owners.title") %></h2>
           <p class="mb-6"><%= t("home.owners.description") %></p>
-          <a href="/register" class="bg-primary text-white font-bold py-3 px-6 rounded-lg inline-block">
-            <i class="fa-solid fa-door-open mr-2"></i> <%= t("home.owners.button") %>
-          </a>
+          <%= render ButtonComponent.new(
+                text: t("home.owners.button"),
+                path: "/register",
+                icon: "fa-solid fa-door-open",
+                icon_position: :start,
+                variant: :primary
+              ) %>
         </div>
       </div>
     </div>
