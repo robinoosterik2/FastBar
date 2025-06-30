@@ -1,1 +1,0 @@
-[bin/rubocop](https://guides.rubyonrails.org/getting_started.html#consistently-formatted-code-with-rubocop)
