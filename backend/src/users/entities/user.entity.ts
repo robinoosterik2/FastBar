@@ -5,6 +5,8 @@ import {
   OneToOne,
   JoinColumn,
   OneToMany,
+  BeforeInsert,
+  BeforeUpdate,
 } from 'typeorm';
 import { Settings } from './settings.entity';
 import { Role } from 'src/roles/entities/role.entity';
@@ -53,4 +55,19 @@ export class User {
 
   @OneToMany(() => Role, (role) => role.user)
   roles: Role[];
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  updateDates() {
+    this.updatedAt = new Date();
+    if (!this.createdAt) {
+      this.createdAt = new Date();
+    }
+  }
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  normalize() {
+    this.email = this.email.toLowerCase();
+  }
 }

@@ -21,8 +21,8 @@ services:
       context: ./backend
       dockerfile: dev.Dockerfile
     container_name: fastbar-app
-    environment:
-      - PORT=${PORT}
+    env_file:
+      - .env
     ports:
       - "3000:3000"
     depends_on:
