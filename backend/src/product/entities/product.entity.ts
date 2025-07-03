@@ -6,8 +6,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
-import { Order } from 'src/order/entities/order.entity';
 import { Category } from 'src/category/entities/category.entity';
+import { OrderProduct } from 'src/order-product/entities/order-product.entity';
 
 @Entity()
 export class Product {
@@ -34,4 +34,7 @@ export class Product {
 
   @ManyToMany(() => Category, (category) => category.products)
   category: Category[];
+
+  @OneToMany(() => OrderProduct, (orderProduct) => orderProduct.product)
+  orderProducts: OrderProduct[];
 }

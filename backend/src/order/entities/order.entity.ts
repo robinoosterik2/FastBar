@@ -10,6 +10,7 @@ import { Bar } from 'src/bar/entities/bar.entity';
 import { OrderProduct } from 'src/order-product/entities/order-product.entity';
 import { User } from 'src/users/entities/user.entity';
 import { Payment } from 'src/payment/entities/payment.entity';
+import { JoinColumn } from 'typeorm';
 
 @Entity()
 export class Order {
@@ -65,5 +66,6 @@ export class Order {
   bar: Bar;
 
   @OneToOne(() => Payment, (payment) => payment.order)
+  @JoinColumn()
   payment: Payment;
 }
