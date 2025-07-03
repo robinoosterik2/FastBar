@@ -30,9 +30,12 @@ jobs:
         with:
           node-version: "20"
           cache: "pnpm"
+          working-directory: ./backend
 
       - name: Install dependencies
         run: pnpm install
+        working-directory: ./backend
 
       - name: Run ESLint
         run: pnpm run lint
+        working-directory: ./backend
