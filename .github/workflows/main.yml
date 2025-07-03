@@ -33,7 +33,7 @@ jobs:
           cache-dependency-path: "./backend/pnpm-lock.yaml"
 
       - name: Install dependencies
-        run: pnpm install --prod=false
+        run: pnpm install
 
       - name: Run ESLint
         run: pnpm run lint
