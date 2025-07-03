@@ -14,6 +14,12 @@ import { BarModule } from './bar/bar.module';
 import { ProductToBarModule } from './product-to-bar/product-to-bar.module';
 import { OrderProductModule } from './order-product/order-product.module';
 import { OrderModule } from './order/order.module';
+import { AddressModule } from './address/address.module';
+import { CategoryModule } from './category/category.module';
+import { PaymentModule } from './payment/payment.module';
+import { AuditLogModule } from './audit-log/audit-log.module';
+import { CategoryTagModule } from './category-tag/category-tag.module';
+import { VenueTagModule } from './venue-tag/venue-tag.module';
 
 @Module({
   imports: [
@@ -36,6 +42,12 @@ import { OrderModule } from './order/order.module';
     ProductToBarModule,
     OrderModule,
     OrderProductModule,
+    AddressModule,
+    CategoryModule,
+    PaymentModule,
+    AuditLogModule,
+    CategoryTagModule,
+    VenueTagModule,
   ],
   controllers: [AppController],
   providers: [

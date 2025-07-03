@@ -13,6 +13,24 @@ export class ProductToBar {
   @ManyToOne(() => Bar, (bar) => bar.productToBars)
   bar: Bar;
 
+  @Column({ nullable: true })
+  currentStock: number;
+
+  @Column({ nullable: true })
+  minimumStock: number;
+
+  @Column({ nullable: true })
+  maximumStock: number;
+
   @Column()
-  stock: number;
+  isAvailable: boolean;
+
+  @Column({ nullable: true })
+  lastRestocked: Date;
+
+  @Column()
+  createdAt: Date;
+
+  @Column()
+  updatedAt: Date;
 }

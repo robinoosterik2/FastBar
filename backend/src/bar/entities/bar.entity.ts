@@ -17,12 +17,27 @@ export class Bar {
   @Column({ nullable: false })
   name: string;
 
-  @ManyToOne(() => Venue, (venue) => venue.bars)
-  venue: Venue;
+  @Column({ nullable: false })
+  operatingHours: string;
+
+  @Column({ nullable: false })
+  averagePreparationTime: number;
 
   @OneToMany(() => ProductToBar, (productToBar) => productToBar.bar)
   productToBars: ProductToBar[];
 
-  @OneToMany(() => Order, (order) => order.bar, { lazy: true })
-  orders: Promise<Order[]>;
+  @OneToMany(() => Order, (order) => order.bar)
+  orders: Order[];
+
+  @ManyToOne(() => Venue, (venue) => venue.bars)
+  venue: Venue;
+
+  @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
+  createdAt: Date;
+
+  @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
+  updatedAt: Date;
+
+  @Column({ nullable: true })
+  deletedAt: Date;
 }

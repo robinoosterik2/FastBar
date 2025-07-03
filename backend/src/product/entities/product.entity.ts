@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
 import { Order } from 'src/order/entities/order.entity';
+import { Category } from 'src/category/entities/category.entity';
 
 @Entity()
 export class Product {
@@ -28,12 +29,9 @@ export class Product {
   @Column({ nullable: false })
   image: string;
 
-  @Column({ nullable: false })
-  category: string;
-
   @OneToMany(() => ProductToBar, (productToBar) => productToBar.product)
   productToBars: ProductToBar[];
 
-  @ManyToMany(() => Order, (order) => order.products, { lazy: true })
-  orders: Promise<Order[]>;
+  @ManyToMany(() => Category, (category) => category.products)
+  category: Category[];
 }

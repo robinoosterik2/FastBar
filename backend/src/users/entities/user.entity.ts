@@ -10,6 +10,9 @@ import {
 } from 'typeorm';
 import { Settings } from './settings.entity';
 import { Role } from 'src/roles/entities/role.entity';
+import { Order } from 'src/order/entities/order.entity';
+import { Payment } from 'src/payment/entities/payment.entity';
+import { AuditLog } from 'src/audit-log/entities/audit-log.entity';
 
 export enum Status {
   ACTIVE = 'active',
@@ -50,12 +53,30 @@ export class User {
   @Column({ nullable: true })
   deletedAt: Date;
 
+  @Column({ default: false, nullable: false })
+  emailVerified: boolean;
+
+  @Column({ default: false, nullable: false })
+  phoneVerified: boolean;
+
+  @Column({ nullable: true })
+  lastLoginAt: Date;
+
   @OneToOne(() => Settings, { cascade: true })
   @JoinColumn()
   settings: Settings;
 
   @OneToMany(() => Role, (role) => role.user)
   roles: Role[];
+
+  @OneToMany(() => Order, (order) => order.user)
+  orders: Order[];
+
+  @OneToMany(() => Payment, (payment) => payment.user)
+  payments: Payment[];
+
+  @OneToMany(() => AuditLog, (auditLog) => auditLog.performedBy)
+  auditLogs: AuditLog[];
 
   @BeforeInsert()
   @BeforeUpdate()

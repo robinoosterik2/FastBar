@@ -22,4 +22,13 @@ export class Settings {
 
   @Column({ default: false, nullable: false })
   push_notifications: boolean;
+
+  @Column({ default: false, nullable: false })
+  marketing_emails: boolean;
+
+  @Column({ default: false, nullable: false })
+  order_notifications: boolean;
+
+  @Column({ default: () => 'now()', nullable: false })
+  updatedAt: Date;
 }
