@@ -1,1 +1,1 @@
-export class CreateCategoryTagDto {}
+export class _CreateCategoryTagDto {}

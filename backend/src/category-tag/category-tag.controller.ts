@@ -8,15 +8,15 @@ import {
   Delete,
 } from '@nestjs/common';
 import { CategoryTagService } from './category-tag.service';
-import { CreateCategoryTagDto } from './dto/create-category-tag.dto';
-import { UpdateCategoryTagDto } from './dto/update-category-tag.dto';
+import { _CreateCategoryTagDto } from './dto/create-category-tag.dto';
+import { _UpdateCategoryTagDto } from './dto/update-category-tag.dto';
 
 @Controller('category-tag')
 export class CategoryTagController {
   constructor(private readonly categoryTagService: CategoryTagService) {}
 
   @Post()
-  create(@Body() createCategoryTagDto: CreateCategoryTagDto) {
+  create(@Body() createCategoryTagDto: _CreateCategoryTagDto) {
     return this.categoryTagService.create(createCategoryTagDto);
   }
 
@@ -33,7 +33,7 @@ export class CategoryTagController {
   @Patch(':id')
   update(
     @Param('id') id: string,
-    @Body() updateCategoryTagDto: UpdateCategoryTagDto,
+    @Body() updateCategoryTagDto: _UpdateCategoryTagDto,
   ) {
     return this.categoryTagService.update(+id, updateCategoryTagDto);
   }

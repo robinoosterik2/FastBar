@@ -8,15 +8,15 @@ import {
   Delete,
 } from '@nestjs/common';
 import { VenueTagService } from './venue-tag.service';
-import { CreateVenueTagDto } from './dto/create-venue-tag.dto';
-import { UpdateVenueTagDto } from './dto/update-venue-tag.dto';
+import { _CreateVenueTagDto } from './dto/create-venue-tag.dto';
+import { _UpdateVenueTagDto } from './dto/update-venue-tag.dto';
 
 @Controller('venue-tag')
 export class VenueTagController {
   constructor(private readonly venueTagService: VenueTagService) {}
 
   @Post()
-  create(@Body() createVenueTagDto: CreateVenueTagDto) {
+  create(@Body() createVenueTagDto: _CreateVenueTagDto) {
     return this.venueTagService.create(createVenueTagDto);
   }
 
@@ -33,7 +33,7 @@ export class VenueTagController {
   @Patch(':id')
   update(
     @Param('id') id: string,
-    @Body() updateVenueTagDto: UpdateVenueTagDto,
+    @Body() updateVenueTagDto: _UpdateVenueTagDto,
   ) {
     return this.venueTagService.update(+id, updateVenueTagDto);
   }

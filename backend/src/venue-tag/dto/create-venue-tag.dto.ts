@@ -1,1 +1,1 @@
-export class CreateVenueTagDto {}
+export class _CreateVenueTagDto {}

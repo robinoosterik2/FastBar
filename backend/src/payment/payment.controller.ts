@@ -8,15 +8,15 @@ import {
   Delete,
 } from '@nestjs/common';
 import { PaymentService } from './payment.service';
-import { CreatePaymentDto } from './dto/create-payment.dto';
-import { UpdatePaymentDto } from './dto/update-payment.dto';
+import { _CreatePaymentDto } from './dto/create-payment.dto';
+import { _UpdatePaymentDto } from './dto/update-payment.dto';
 
 @Controller('payment')
 export class PaymentController {
   constructor(private readonly paymentService: PaymentService) {}
 
   @Post()
-  create(@Body() createPaymentDto: CreatePaymentDto) {
+  create(@Body() createPaymentDto: _CreatePaymentDto) {
     return this.paymentService.create(createPaymentDto);
   }
 
@@ -31,7 +31,7 @@ export class PaymentController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePaymentDto: UpdatePaymentDto) {
+  update(@Param('id') id: string, @Body() updatePaymentDto: _UpdatePaymentDto) {
     return this.paymentService.update(+id, updatePaymentDto);
   }
 

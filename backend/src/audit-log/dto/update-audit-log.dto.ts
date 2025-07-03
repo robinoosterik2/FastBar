@@ -1,4 +1,4 @@
 import { PartialType } from '@nestjs/swagger';
-import { CreateAuditLogDto } from './create-audit-log.dto';
+import { _CreateAuditLogDto } from './create-audit-log.dto';
 
-export class UpdateAuditLogDto extends PartialType(CreateAuditLogDto) {}
+export class _UpdateAuditLogDto extends PartialType(_CreateAuditLogDto) {}

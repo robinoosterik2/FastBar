@@ -1,1 +1,1 @@
-export class CreateBarDto {}
+export class _CreateBarDto {}

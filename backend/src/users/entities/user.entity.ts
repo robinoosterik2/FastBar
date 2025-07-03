@@ -66,8 +66,8 @@ export class User {
   @JoinColumn()
   settings: Settings;
 
-  @OneToMany(() => Role, (role) => role.user)
-  roles: Role[];
+  @OneToMany(() => Role, (role) => role.user, { lazy: true })
+  roles: Promise<Role[]>;
 
   @OneToMany(() => Order, (order) => order.user)
   orders: Order[];
