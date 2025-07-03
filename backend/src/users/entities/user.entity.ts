@@ -15,6 +15,7 @@ export enum Status {
   ACTIVE = 'active',
   BANNED = 'banned',
   INACTIVE = 'inactive',
+  PENDING = 'pending',
 }
 
 @Entity()

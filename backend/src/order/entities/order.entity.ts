@@ -4,9 +4,11 @@ import {
   ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
+  OneToMany,
 } from 'typeorm';
 import { Product } from 'src/product/entities/product.entity';
 import { Bar } from 'src/bar/entities/bar.entity';
+import { OrderProduct } from 'src/order-product/entities/order-product.entity';
 
 @Entity()
 export class Order {
@@ -33,4 +35,7 @@ export class Order {
 
   @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
   updatedAt: Date;
+
+  @OneToMany(() => OrderProduct, (orderProduct) => orderProduct.order)
+  orderProducts: OrderProduct[];
 }

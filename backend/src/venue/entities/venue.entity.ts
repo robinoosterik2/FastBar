@@ -34,6 +34,9 @@ export class Venue {
   website: string;
 
   @Column({ nullable: true })
+  description: string;
+
+  @Column({ nullable: true })
   logo: string;
 
   @OneToMany(() => Bar, (bar) => bar.venue)

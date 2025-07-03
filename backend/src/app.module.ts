@@ -12,9 +12,8 @@ import { VenueModule } from './venue/venue.module';
 import { ProductModule } from './product/product.module';
 import { BarModule } from './bar/bar.module';
 import { ProductToBarModule } from './product-to-bar/product-to-bar.module';
-import { SalesModule } from './sales/sales.module';
+import { OrderProductModule } from './order-product/order-product.module';
 import { OrderModule } from './order/order.module';
-import { OrderItemModule } from './order-item/order-item.module';
 
 @Module({
   imports: [
@@ -35,9 +34,8 @@ import { OrderItemModule } from './order-item/order-item.module';
     ProductModule,
     BarModule,
     ProductToBarModule,
-    SalesModule,
     OrderModule,
-    OrderItemModule,
+    OrderProductModule,
   ],
   controllers: [AppController],
   providers: [
