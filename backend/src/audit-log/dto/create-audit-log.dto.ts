@@ -1,1 +1,1 @@
-export class CreateAuditLogDto {}
+export class _CreateAuditLogDto {}

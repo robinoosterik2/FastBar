@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateBarDto } from './dto/create-bar.dto';
-import { UpdateBarDto } from './dto/update-bar.dto';
+import { _CreateBarDto } from './dto/create-bar.dto';
+import { _UpdateBarDto } from './dto/update-bar.dto';
 
 @Injectable()
 export class BarService {
-  create(createBarDto: CreateBarDto) {
+  create(_createBarDto: _CreateBarDto) {
     return 'This action adds a new bar';
   }
 
@@ -16,7 +16,7 @@ export class BarService {
     return `This action returns a #${id} bar`;
   }
 
-  update(id: number, updateBarDto: UpdateBarDto) {
+  update(id: number, _updateBarDto: _UpdateBarDto) {
     return `This action updates a #${id} bar`;
   }
 

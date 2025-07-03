@@ -1,4 +1,4 @@
 import { PartialType } from '@nestjs/swagger';
-import { CreateVenueTagDto } from './create-venue-tag.dto';
+import { _CreateVenueTagDto } from './create-venue-tag.dto';
 
-export class UpdateVenueTagDto extends PartialType(CreateVenueTagDto) {}
+export class _UpdateVenueTagDto extends PartialType(_CreateVenueTagDto) {}

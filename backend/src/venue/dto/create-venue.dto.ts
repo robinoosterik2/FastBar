@@ -1,1 +1,1 @@
-export class CreateVenueDto {}
+export class _CreateVenueDto {}

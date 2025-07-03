@@ -1,1 +1,1 @@
-export class CreateProductDto {}
+export class _CreateProductDto {}

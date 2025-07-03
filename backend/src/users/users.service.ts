@@ -1,4 +1,4 @@
-import { Injectable, HttpException, ConflictException } from '@nestjs/common';
+import { Injectable, ConflictException } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
@@ -60,5 +60,15 @@ export class UsersService {
 
   remove(id: string) {
     return this.usersRepository.delete(id);
+  }
+
+  async hasRole(user: User, roleString: string): Promise<boolean> {
+    const roles = await user.roles;
+    for (const role of roles) {
+      if (role.name === roleString) {
+        return true;
+      }
+    }
+    return false;
   }
 }
