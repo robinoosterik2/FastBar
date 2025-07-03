@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { CategoryTagService } from './category-tag.service';
 import { CreateCategoryTagDto } from './dto/create-category-tag.dto';
 import { UpdateCategoryTagDto } from './dto/update-category-tag.dto';
@@ -23,7 +31,10 @@ export class CategoryTagController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCategoryTagDto: UpdateCategoryTagDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateCategoryTagDto: UpdateCategoryTagDto,
+  ) {
     return this.categoryTagService.update(+id, updateCategoryTagDto);
   }
 

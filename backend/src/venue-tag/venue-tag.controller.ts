@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { VenueTagService } from './venue-tag.service';
 import { CreateVenueTagDto } from './dto/create-venue-tag.dto';
 import { UpdateVenueTagDto } from './dto/update-venue-tag.dto';
@@ -23,7 +31,10 @@ export class VenueTagController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateVenueTagDto: UpdateVenueTagDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateVenueTagDto: UpdateVenueTagDto,
+  ) {
     return this.venueTagService.update(+id, updateVenueTagDto);
   }
 
