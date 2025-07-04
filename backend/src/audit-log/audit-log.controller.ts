@@ -1,14 +1,22 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AuditLogService } from './audit-log.service';
-import { CreateAuditLogDto } from './dto/create-audit-log.dto';
-import { UpdateAuditLogDto } from './dto/update-audit-log.dto';
+import { _CreateAuditLogDto } from './dto/create-audit-log.dto';
+import { _UpdateAuditLogDto } from './dto/update-audit-log.dto';
 
 @Controller('audit-log')
 export class AuditLogController {
   constructor(private readonly auditLogService: AuditLogService) {}
 
   @Post()
-  create(@Body() createAuditLogDto: CreateAuditLogDto) {
+  create(@Body() createAuditLogDto: _CreateAuditLogDto) {
     return this.auditLogService.create(createAuditLogDto);
   }
 
@@ -23,7 +31,10 @@ export class AuditLogController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuditLogDto: UpdateAuditLogDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateAuditLogDto: _UpdateAuditLogDto,
+  ) {
     return this.auditLogService.update(+id, updateAuditLogDto);
   }
 

@@ -1,14 +1,22 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { BarService } from './bar.service';
-import { CreateBarDto } from './dto/create-bar.dto';
-import { UpdateBarDto } from './dto/update-bar.dto';
+import { _CreateBarDto } from './dto/create-bar.dto';
+import { _UpdateBarDto } from './dto/update-bar.dto';
 
 @Controller('bar')
 export class BarController {
   constructor(private readonly barService: BarService) {}
 
   @Post()
-  create(@Body() createBarDto: CreateBarDto) {
+  create(@Body() createBarDto: _CreateBarDto) {
     return this.barService.create(createBarDto);
   }
 
@@ -23,7 +31,7 @@ export class BarController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBarDto: UpdateBarDto) {
+  update(@Param('id') id: string, @Body() updateBarDto: _UpdateBarDto) {
     return this.barService.update(+id, updateBarDto);
   }
 

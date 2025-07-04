@@ -7,6 +7,12 @@ import {
 import { Reflector } from '@nestjs/core';
 import { ROLES_KEY } from './roles.decorator';
 
+interface CRequest {
+  user?: {
+    roles: string[];
+  };
+}
+
 @Injectable()
 export class RolesGuard implements CanActivate {
   constructor(private reflector: Reflector) {}
@@ -20,8 +26,8 @@ export class RolesGuard implements CanActivate {
       return true; // no roles required
     }
 
-    const { user } = context.switchToHttp().getRequest();
-    if (!user || !user.roles) {
+    const { user } = context.switchToHttp().getRequest<CRequest>();
+    if (!user?.roles) {
       throw new ForbiddenException('No user or roles found');
     }
 

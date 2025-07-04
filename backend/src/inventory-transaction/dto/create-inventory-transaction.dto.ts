@@ -1,1 +1,1 @@
-export class CreateInventoryTransactionDto {}
+export class _CreateInventoryTransactionDto {}

@@ -9,7 +9,9 @@ describe('InventoryTransactionService', () => {
       providers: [InventoryTransactionService],
     }).compile();
 
-    service = module.get<InventoryTransactionService>(InventoryTransactionService);
+    service = module.get<InventoryTransactionService>(
+      InventoryTransactionService,
+    );
   });
 
   it('should be defined', () => {

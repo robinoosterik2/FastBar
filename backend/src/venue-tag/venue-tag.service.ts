@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateVenueTagDto } from './dto/create-venue-tag.dto';
-import { UpdateVenueTagDto } from './dto/update-venue-tag.dto';
+import { _CreateVenueTagDto } from './dto/create-venue-tag.dto';
+import { _UpdateVenueTagDto } from './dto/update-venue-tag.dto';
 
 @Injectable()
 export class VenueTagService {
-  create(createVenueTagDto: CreateVenueTagDto) {
+  create(_createVenueTagDto: _CreateVenueTagDto) {
     return 'This action adds a new venueTag';
   }
 
@@ -16,7 +16,7 @@ export class VenueTagService {
     return `This action returns a #${id} venueTag`;
   }
 
-  update(id: number, updateVenueTagDto: UpdateVenueTagDto) {
+  update(id: number, _updateVenueTagDto: _UpdateVenueTagDto) {
     return `This action updates a #${id} venueTag`;
   }
 

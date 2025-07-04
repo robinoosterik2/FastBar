@@ -6,7 +6,6 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  BaseEntity,
 } from 'typeorm';
 import type { Venue } from 'src/venue/entities/venue.entity';
 import type { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
