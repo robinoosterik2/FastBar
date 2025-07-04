@@ -1,5 +1,20 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { User } from 'src/users/entities/user.entity';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { User } from '../../users/entities/user.entity';
+
+export enum AuditLogAction {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LOGIN = 'login',
+  LOGOUT = 'logout',
+}
 
 @Entity()
 export class AuditLog {
@@ -12,14 +27,14 @@ export class AuditLog {
   @Column({ nullable: false })
   entityId: string;
 
-  @Column({ nullable: false })
-  action: string;
+  @Column({ enum: AuditLogAction, nullable: false })
+  action: AuditLogAction;
 
-  @Column({ nullable: true })
-  oldValues: string;
+  @Column({ type: 'json', nullable: true })
+  oldValues: JSON;
 
-  @Column({ nullable: true })
-  newValues: string;
+  @Column({ type: 'json', nullable: true })
+  newValues: JSON;
 
   @ManyToOne(() => User, (user) => user.auditLogs)
   performedBy: User;
@@ -30,6 +45,9 @@ export class AuditLog {
   @Column({ nullable: true })
   userAgent: string;
 
-  @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt: Date;
 }

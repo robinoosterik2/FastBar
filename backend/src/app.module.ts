@@ -20,18 +20,33 @@ import { PaymentModule } from './payment/payment.module';
 import { AuditLogModule } from './audit-log/audit-log.module';
 import { CategoryTagModule } from './category-tag/category-tag.module';
 import { VenueTagModule } from './venue-tag/venue-tag.module';
+import { InventoryTransactionModule } from './inventory-transaction/inventory-transaction.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'db',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'postgres',
-      autoLoadEntities: true,
-      synchronize: true,
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        type: 'postgres',
+        host: configService.get('DB_HOST') || 'db',
+        port: Number(configService.get('DB_PORT')) || 5432,
+        username: configService.get('DB_USERNAME') || 'postgres',
+        password: configService.get('DB_PASSWORD') || 'postgres',
+        database: configService.get('DB_NAME') || 'postgres',
+        entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        migrations: [__dirname + '/migrations/*{.ts,.js}'],
+        migrationsTableName: 'migrations',
+        synchronize: configService.get('NODE_ENV') === 'development',
+        logging: configService.get('NODE_ENV') === 'development',
+        ssl:
+          configService.get('NODE_ENV') === 'production'
+            ? {
+                rejectUnauthorized: false,
+              }
+            : false,
+      }),
+      inject: [ConfigService],
     }),
     UsersModule,
     AuthModule,
@@ -48,6 +63,7 @@ import { VenueTagModule } from './venue-tag/venue-tag.module';
     AuditLogModule,
     CategoryTagModule,
     VenueTagModule,
+    InventoryTransactionModule,
   ],
   controllers: [AppController],
   providers: [

@@ -61,6 +61,14 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
+## Migrate
+
+```bash
+$ pnpm run migration:generate src/migrations/<FILENAME>
+$ pnpm run migration:run
+$ pnpm run migration:revert
+```
+
 ## 📚 API Documentation
 
 When the app is running in development mode, you can access the API documentation at:

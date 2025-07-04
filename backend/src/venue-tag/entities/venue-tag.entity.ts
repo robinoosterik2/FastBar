@@ -1,5 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
-import { Venue } from 'src/venue/entities/venue.entity';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import type { Venue } from 'src/venue/entities/venue.entity';
 
 @Entity()
 export class VenueTag {
@@ -15,12 +22,12 @@ export class VenueTag {
   @Column({ nullable: false, default: true })
   isActive: boolean;
 
-  @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
-  @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
+  @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 
-  @ManyToMany(() => Venue, (venue) => venue.venueTags)
+  @ManyToMany('Venue', (venue: Venue) => venue.venueTags)
   venues: Venue[];
 }

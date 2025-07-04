@@ -4,10 +4,12 @@ import {
   ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
-import { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
-import { Category } from 'src/category/entities/category.entity';
-import { OrderProduct } from 'src/order-product/entities/order-product.entity';
+import type { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
+import type { Category } from 'src/category/entities/category.entity';
+import type { OrderProduct } from 'src/order-product/entities/order-product.entity';
 
 @Entity()
 export class Product {
@@ -20,21 +22,39 @@ export class Product {
   @Column('decimal', { precision: 10, scale: 2 })
   price: number;
 
-  @Column({ nullable: false, default: 18 })
+  @Column({ nullable: true })
   ageRestriction: number;
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   description: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   image: string;
 
-  @OneToMany(() => ProductToBar, (productToBar) => productToBar.product)
+  @Column({ nullable: false, default: true })
+  isActive: boolean;
+
+  @Column('decimal', { precision: 5, scale: 2, nullable: true })
+  alcoholContent: number;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt: Date;
+
+  @OneToMany(
+    'ProductToBar',
+    (productToBar: ProductToBar) => productToBar.product,
+  )
   productToBars: ProductToBar[];
 
-  @ManyToMany(() => Category, (category) => category.products)
+  @ManyToMany('Category', (category: Category) => category.products)
   category: Category[];
 
-  @OneToMany(() => OrderProduct, (orderProduct) => orderProduct.product)
+  @OneToMany(
+    'OrderProduct',
+    (orderProduct: OrderProduct) => orderProduct.product,
+  )
   orderProducts: OrderProduct[];
 }
