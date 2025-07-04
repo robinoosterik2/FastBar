@@ -27,7 +27,7 @@ export class AuditLog {
   @Column({ nullable: false })
   entityId: string;
 
-  @Column({ enum: AuditLogAction, nullable: false })
+  @Column({ type: 'enum', enum: AuditLogAction, nullable: false })
   action: AuditLogAction;
 
   @Column({ type: 'json', nullable: true })

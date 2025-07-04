@@ -47,7 +47,7 @@ export class Order {
   @Column('decimal', { precision: 10, scale: 2, default: 0 })
   total: number;
 
-  @Column({ enum: OrderStatus, default: OrderStatus.PENDING })
+  @Column({ type: 'enum', enum: OrderStatus, default: OrderStatus.PENDING })
   status: OrderStatus;
 
   @Column({ nullable: true })
