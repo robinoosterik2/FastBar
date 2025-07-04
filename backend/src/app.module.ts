@@ -22,9 +22,13 @@ import { CategoryTagModule } from './category-tag/category-tag.module';
 import { VenueTagModule } from './venue-tag/venue-tag.module';
 import { InventoryTransactionModule } from './inventory-transaction/inventory-transaction.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import configuration from './config/configuration';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      load: [configuration],
+    }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
