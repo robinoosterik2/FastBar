@@ -12,6 +12,7 @@
 - [x] Prob Fix json
 - [x] Create BaseModel
 - [ ] Add WebSockets
+- [ ] Add role guard to routes
 
 #### Creating migrations
 
