@@ -1,7 +1,7 @@
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Header } from "@/components/ui/header";
 
 export default function RootLayout({
   children,
@@ -15,12 +15,12 @@ export default function RootLayout({
         <body>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="light"
             enableSystem
             disableTransitionOnChange
           >
+            <Header />
             {children}
-            <ModeToggle />
           </ThemeProvider>
         </body>
       </html>
