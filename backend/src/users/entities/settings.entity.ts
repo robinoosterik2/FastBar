@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from 'typeorm';
-import { User } from 'src/users/entities/user.entity';
+import type { User } from 'src/users/entities/user.entity';
 
 @Entity()
 export class Settings {
@@ -33,6 +33,6 @@ export class Settings {
   @Column({ default: () => 'now()', nullable: false })
   updatedAt: Date;
 
-  @OneToOne(() => User, (user) => user.settings)
+  @OneToOne('User', (user: User) => user.settings)
   user: User;
 }

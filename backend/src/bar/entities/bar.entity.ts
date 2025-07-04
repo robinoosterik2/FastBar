@@ -4,10 +4,13 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  BaseEntity,
 } from 'typeorm';
-import { Venue } from 'src/venue/entities/venue.entity';
-import { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
-import { Order } from 'src/order/entities/order.entity';
+import type { Venue } from 'src/venue/entities/venue.entity';
+import type { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
+import type { Order } from 'src/order/entities/order.entity';
 
 @Entity()
 export class Bar {
@@ -17,25 +20,25 @@ export class Bar {
   @Column({ nullable: false })
   name: string;
 
-  @Column({ nullable: false })
-  operatingHours: string;
+  @Column({ type: 'json', nullable: true })
+  operatingHours: JSON;
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   averagePreparationTime: number;
 
-  @OneToMany(() => ProductToBar, (productToBar) => productToBar.bar)
+  @OneToMany('ProductToBar', (productToBar: ProductToBar) => productToBar.bar)
   productToBars: ProductToBar[];
 
-  @OneToMany(() => Order, (order) => order.bar)
+  @OneToMany('Order', (order: Order) => order.bar)
   orders: Order[];
 
-  @ManyToOne(() => Venue, (venue) => venue.bars)
+  @ManyToOne('Venue', (venue: Venue) => venue.bars)
   venue: Venue;
 
-  @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
-  @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
+  @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 
   @Column({ nullable: true })

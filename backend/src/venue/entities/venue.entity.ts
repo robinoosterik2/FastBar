@@ -1,14 +1,17 @@
 import {
   Column,
   Entity,
+  ManyToMany,
   OneToMany,
-  ManyToOne,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
-import { Bar } from 'src/bar/entities/bar.entity';
-import { Address } from 'src/address/entities/address.entity';
-import { VenueTag } from 'src/venue-tag/entities/venue-tag.entity';
-import { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
+import type { Bar } from 'src/bar/entities/bar.entity';
+import type { Address } from 'src/address/entities/address.entity';
+import type { VenueTag } from 'src/venue-tag/entities/venue-tag.entity';
+import type { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
+import type { Category } from 'src/category/entities/category.entity';
 
 @Entity()
 export class Venue {
@@ -17,18 +20,6 @@ export class Venue {
 
   @Column({ nullable: false })
   name: string;
-
-  @Column({ nullable: false })
-  city: string;
-
-  @Column({ nullable: false })
-  province: string;
-
-  @Column({ nullable: false })
-  postalCode: string;
-
-  @Column({ nullable: false })
-  country: string;
 
   @Column({ nullable: false })
   phone: string;
@@ -45,16 +36,19 @@ export class Venue {
   @Column({ nullable: true })
   logo: string;
 
-  @OneToMany(() => VenueTag, (venueTag) => venueTag.venues)
+  @ManyToMany('VenueTag', (venueTag: VenueTag) => venueTag.venues)
   venueTags: VenueTag[];
 
-  @ManyToOne(() => CategoryTag, (categoryTag) => categoryTag.venue)
+  @OneToMany('CategoryTag', (categoryTag: CategoryTag) => categoryTag.venue)
   categoryTags: CategoryTag[];
 
-  @OneToMany(() => Bar, (bar) => bar.venue)
+  @OneToMany('Category', (category: Category) => category.venue)
+  categories: Category[];
+
+  @OneToMany('Bar', (bar: Bar) => bar.venue)
   bars: Bar[];
 
-  @OneToMany(() => Address, (address) => address.venue)
+  @OneToMany('Address', (address: Address) => address.venue)
   addresses: Address[];
 
   @Column('json', { nullable: true })
@@ -66,9 +60,9 @@ export class Venue {
   @Column({ nullable: false })
   isOpen: boolean;
 
-  @Column({ nullable: false })
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
-  @Column({ nullable: false })
+  @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 }

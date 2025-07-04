@@ -8,7 +8,7 @@ entity User {
   *firstName: string
   *lastName: string
   *dateOfBirth: Date
-  *status: Status (active|banned|inactive|pending)
+  *status: enum (active|banned|inactive|pending)
   *emailVerified: boolean
   *phoneVerified: boolean
   *lastLoginAt: DateTime
@@ -60,8 +60,8 @@ entity Address {
 
 entity Venue {
   + id: uuid [PK]
-  + address: Address [FK]
-  + tags: VenueTag[]
+  + addresses: Address []
+  + categories: Category[]
   + name: string
   + phone: string
   + email: string
@@ -74,6 +74,7 @@ entity Venue {
   + createdAt: DateTime
   + updatedAt: DateTime
   + categoryTags: CategoryTag[]
+  + venueTags: VenueTag[]
   + bars: Bar[]
 }
 
@@ -97,24 +98,25 @@ entity Product {
   + ageRestriction: number
   + description: string [nullable]
   + image: string [nullable]
-  + categories: Category[] [FK, nullable]
   + isActive: boolean
   + alcoholContent: decimal(5,2) [nullable]
   + createdAt: DateTime
   + updatedAt: DateTime
+  + categories: Category[] [FK, nullable]
 }
 
 entity Category {
   + id: uuid [PK]
   + name: string
   + description: string [nullable]
+  + venue: Venue [FK]
   + parentCategories: Category[] [FK, nullable]
   + childCategories: Category[] [FK, nullable]
   + products: Product[] [FK, nullable]
   + isActive: boolean
   + createdAt: DateTime
   + updatedAt: DateTime
-  + tags: CategoryTag[]
+  + categoryTags: CategoryTag[]
 }
 
 entity OrderProduct {
@@ -135,7 +137,6 @@ entity Order {
   + discountAmount: decimal(10,2)
   + total: decimal(10,2)
   + status: enum (pending|confirmed|preparing|ready|completed|cancelled)
-  + paymentStatus: enum (pending|paid|failed|refunded)
   + estimatedReadyTime: DateTime [nullable]
   + completedAt: DateTime [nullable]
   + createdAt: DateTime
@@ -187,7 +188,7 @@ entity InventoryTransaction {
   + updatedAt: DateTime
 }
 
-class AuditLog {
+entity AuditLog {
   *id: uuid [PK]
   + entityType: string
   + entityId: uuid
@@ -220,7 +221,7 @@ entity VenueTag {
   + updatedAt: DateTime
 }
 
-User }o--|| Role : has
+User }o--o{ Role : has
 User ||--|| Settings : has
 User ||--o{ Order : has
 Order ||--o{ OrderProduct : has
@@ -237,6 +238,7 @@ Product }o--o{ Category : has
 Category }o--o{ Category : has
 Venue }o--o{ VenueTag : has
 CategoryTag }o--o{ Category : has
+Category }o--|| Venue : has
 
 
 

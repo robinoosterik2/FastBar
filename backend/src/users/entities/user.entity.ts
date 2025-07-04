@@ -5,14 +5,18 @@ import {
   OneToOne,
   JoinColumn,
   OneToMany,
+  ManyToMany,
+  JoinTable,
   BeforeInsert,
   BeforeUpdate,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
-import { Settings } from './settings.entity';
-import { Role } from 'src/roles/entities/role.entity';
-import { Order } from 'src/order/entities/order.entity';
-import { Payment } from 'src/payment/entities/payment.entity';
-import { AuditLog } from 'src/audit-log/entities/audit-log.entity';
+import type { Settings } from './settings.entity';
+import type { Role } from 'src/roles/entities/role.entity';
+import type { Order } from 'src/order/entities/order.entity';
+import type { Payment } from 'src/payment/entities/payment.entity';
+import type { AuditLog } from 'src/audit-log/entities/audit-log.entity';
 
 export enum Status {
   ACTIVE = 'active',
@@ -41,13 +45,13 @@ export class User {
   @Column({ nullable: false })
   dateOfBirth: Date;
 
-  @Column({ default: Status.ACTIVE, nullable: false })
+  @Column({ enum: Status, default: Status.ACTIVE, nullable: false })
   status: Status;
 
-  @Column({ default: () => 'now()', nullable: false })
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
-  @Column({ default: () => 'now()', nullable: false })
+  @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 
   @Column({ nullable: true })
@@ -62,20 +66,23 @@ export class User {
   @Column({ nullable: true })
   lastLoginAt: Date;
 
-  @OneToOne(() => Settings, { cascade: true })
+  @OneToOne('Settings', (settings: Settings) => settings.user, {
+    cascade: true,
+  })
   @JoinColumn()
   settings: Settings;
 
-  @OneToMany(() => Role, (role) => role.user)
+  @ManyToMany('Role', (role: Role) => role.users)
+  @JoinTable()
   roles: Role[];
 
-  @OneToMany(() => Order, (order) => order.user)
+  @OneToMany('Order', (order: Order) => order.user)
   orders: Order[];
 
-  @OneToMany(() => Payment, (payment) => payment.user)
+  @OneToMany('Payment', (payment: Payment) => payment.user)
   payments: Payment[];
 
-  @OneToMany(() => AuditLog, (auditLog) => auditLog.performedBy)
+  @OneToMany('AuditLog', (auditLog: AuditLog) => auditLog.performedBy)
   auditLogs: AuditLog[];
 
   @BeforeInsert()

@@ -35,6 +35,14 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
+## Migrate
+
+```bash
+$ pnpm run migration:generate src/migrations/<FILENAME>
+$ pnpm run migration:run
+$ pnpm run migration:revert
+```
+
 ## Easily create CRUD
 
 To quickly create a CRUD controller with built-in validation, you can use the CLI's CRUD generator:

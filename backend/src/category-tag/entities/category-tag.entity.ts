@@ -1,11 +1,13 @@
-import { Category } from 'src/category/entities/category.entity';
-import { Venue } from 'src/venue/entities/venue.entity';
+import type { Category } from 'src/category/entities/category.entity';
+import type { Venue } from 'src/venue/entities/venue.entity';
 import {
   Column,
   Entity,
   ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -16,18 +18,18 @@ export class CategoryTag {
   @Column({ nullable: false })
   name: string;
 
-  @ManyToOne(() => Venue, (venue) => venue.categoryTags)
+  @ManyToOne('Venue', (venue: Venue) => venue.categoryTags)
   venue: Venue;
 
-  @ManyToMany(() => Category, (category) => category.categoryTags)
+  @ManyToMany('Category', (category: Category) => category.categoryTags)
   categories: Category[];
 
   @Column({ nullable: false })
   isActive: boolean;
 
-  @Column({ nullable: false })
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
-  @Column({ nullable: false })
+  @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 }

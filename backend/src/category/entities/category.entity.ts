@@ -1,6 +1,15 @@
-import { Entity, Column, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Product } from 'src/product/entities/product.entity';
-import { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
+import {
+  Entity,
+  Column,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import type { Product } from 'src/product/entities/product.entity';
+import type { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
+import type { Venue } from 'src/venue/entities/venue.entity';
 
 @Entity()
 export class Category {
@@ -10,27 +19,33 @@ export class Category {
   @Column({ nullable: false })
   name: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   description: string;
 
   @Column({ nullable: false })
   isActive: boolean;
 
-  @Column({ nullable: false })
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
-  @Column({ nullable: false })
+  @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 
-  @ManyToMany(() => CategoryTag, (categoryTag) => categoryTag.categories)
+  @ManyToOne('Venue', (venue: Venue) => venue.categories)
+  venue: Venue;
+
+  @ManyToMany(
+    'CategoryTag',
+    (categoryTag: CategoryTag) => categoryTag.categories,
+  )
   categoryTags: CategoryTag[];
 
-  @ManyToMany(() => Category, (category) => category.parentCategories)
+  @ManyToMany('Category', (category: Category) => category.parentCategories)
   parentCategories: Category[];
 
-  @ManyToMany(() => Category, (category) => category.childCategories)
+  @ManyToMany('Category', (category: Category) => category.childCategories)
   childCategories: Category[];
 
-  @ManyToMany(() => Product, (product) => product.category)
+  @ManyToMany('Product', (product: Product) => product.category)
   products: Product[];
 }

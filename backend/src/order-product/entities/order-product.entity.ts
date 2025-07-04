@@ -1,11 +1,11 @@
 import { Entity, ManyToOne, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { Order } from 'src/order/entities/order.entity';
-import { Product } from 'src/product/entities/product.entity';
+import type { Order } from 'src/order/entities/order.entity';
+import type { Product } from 'src/product/entities/product.entity';
 
 @Entity()
 export class OrderProduct {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column('int', { default: 1 })
   quantity: number;
@@ -18,9 +18,9 @@ export class OrderProduct {
   @Column('decimal', { precision: 10, scale: 2 })
   lineTotal: number;
 
-  @ManyToOne(() => Order, (order) => order.orderProducts)
+  @ManyToOne('Order', (order: Order) => order.orderProducts)
   order: Order;
 
-  @ManyToOne(() => Product, (product) => product.orderProducts)
+  @ManyToOne('Product', (product: Product) => product.orderProducts)
   product: Product;
 }
