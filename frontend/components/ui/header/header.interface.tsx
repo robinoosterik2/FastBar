@@ -9,15 +9,7 @@ export interface HeaderProp {
 
 export const headerProps: HeaderProp[] = [
   {
-    name: "Home",
-    href: "/",
-    color: "foreground",
-    size: "lg",
-    variant: "solid",
-    active: true,
-  },
-  {
-    name: "Features",
+    name: "features",
     href: "/features",
     color: "foreground",
     size: "lg",
@@ -25,7 +17,7 @@ export const headerProps: HeaderProp[] = [
     active: false,
   },
   {
-    name: "Customers",
+    name: "customers",
     href: "/customers",
     color: "foreground",
     size: "lg",
@@ -33,8 +25,8 @@ export const headerProps: HeaderProp[] = [
     active: false,
   },
   {
-    name: "Integrations",
-    href: "/integrations",
+    name: "about",
+    href: "/about",
     color: "foreground",
     size: "lg",
     variant: "solid",

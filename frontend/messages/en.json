@@ -1,0 +1,13 @@
+{
+  "home": {
+    "home": "Home",
+    "features": "Features",
+    "customers": "Customers",
+    "about": "About us",
+    "login": "Login",
+    "register": "Register"
+  },
+  "common": {
+    "submit": "Submit"
+  }
+}

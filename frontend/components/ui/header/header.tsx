@@ -13,9 +13,12 @@ import {
 } from "@heroui/react";
 import React from "react";
 import { headerProps } from "./header.interface";
+import { usePageTranslations } from "@/app/hooks/usePageTranslations";
+import { Link as LinkComponent } from "@/i18n/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { t } = usePageTranslations("home");
 
   return (
     <Navbar shouldHideOnScroll>
@@ -30,18 +33,18 @@ export default function Header() {
         {headerProps.map((item, index) => (
           <NavbarItem key={`${item}-${index}`}>
             <Link color="foreground" href="#">
-              {item.name}
+              {t(item.name)}
             </Link>
           </NavbarItem>
         ))}
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <LinkComponent href="#">{t("login")}</LinkComponent>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
+            {t("register")}
           </Button>
         </NavbarItem>
       </NavbarContent>
@@ -60,7 +63,7 @@ export default function Header() {
               href={item.href}
               size="lg"
             >
-              {item.name}
+              {t(item.name)}
             </Link>
           </NavbarMenuItem>
         ))}

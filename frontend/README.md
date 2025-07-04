@@ -36,3 +36,7 @@ https://hero-ui.com/
 ## Hero Icons
 
 https://heroicons.com/
+
+## Custom usePageTranslations
+
+I created a custom usePageTranslation that combines the current page with the common translations.
