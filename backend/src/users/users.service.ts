@@ -62,8 +62,8 @@ export class UsersService {
     return this.usersRepository.delete(id);
   }
 
-  async hasRole(user: User, roleString: string): Promise<boolean> {
-    const roles = await user.roles;
+  hasRole(user: User, roleString: string): boolean {
+    const roles = user.roles;
     for (const role of roles) {
       if (role.name === roleString) {
         return true;
