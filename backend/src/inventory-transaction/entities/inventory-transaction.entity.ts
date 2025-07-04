@@ -26,7 +26,7 @@ export class InventoryTransaction {
   @JoinColumn()
   productToBar: ProductToBar;
 
-  @Column({ enum: InventoryTransactionType, nullable: false })
+  @Column({ type: 'enum', enum: InventoryTransactionType, nullable: false })
   type: InventoryTransactionType;
 
   @Column({ nullable: false })

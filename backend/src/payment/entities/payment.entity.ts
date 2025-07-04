@@ -20,7 +20,7 @@ export enum PaymentStatus {
 
 export enum PaymentMethod {
   CASH = 'cash',
-  CARD = 'card',
+  STRIPE = 'stripe',
 }
 
 @Entity()
@@ -34,10 +34,10 @@ export class Payment {
   @Column({ nullable: false })
   currency: string;
 
-  @Column({ enum: PaymentMethod, default: PaymentMethod.CASH })
+  @Column({ type: 'enum', enum: PaymentMethod, default: PaymentMethod.CASH })
   method: PaymentMethod;
 
-  @Column({ enum: PaymentStatus, default: PaymentStatus.PENDING })
+  @Column({ type: 'enum', enum: PaymentStatus, default: PaymentStatus.PENDING })
   status: PaymentStatus;
 
   @Column({ nullable: false })

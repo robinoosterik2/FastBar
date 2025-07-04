@@ -8,7 +8,6 @@ import { Reflector } from '@nestjs/core';
 import { ROLES_KEY } from '../roles/roles.decorator';
 import { User } from 'src/users/entities/user.entity';
 import { Request } from 'express';
-import { UsersService } from 'src/users/users.service';
 
 interface AuthRequest extends Request {
   user: User;
@@ -16,12 +15,9 @@ interface AuthRequest extends Request {
 
 @Injectable()
 export class RolesGuard implements CanActivate {
-  constructor(
-    private reflector: Reflector,
-    private readonly usersService: UsersService,
-  ) {}
+  constructor(private reflector: Reflector) {}
 
-  async canActivate(context: ExecutionContext): Promise<boolean> {
+  canActivate(context: ExecutionContext): boolean {
     const requiredRoles = this.reflector.getAllAndOverride<string[]>(
       ROLES_KEY,
       [context.getHandler(), context.getClass()],
@@ -31,7 +27,7 @@ export class RolesGuard implements CanActivate {
     }
 
     const { user } = context.switchToHttp().getRequest<AuthRequest>();
-    const roles = await user.roles;
+    const roles = user.roles;
     if (!user || !roles) {
       throw new ForbiddenException('No user or roles found');
     }

@@ -46,9 +46,10 @@ export class Address {
   longitude: number;
 
   @Column({
-    nullable: false,
+    type: 'enum',
     enum: AddressType,
     default: AddressType.venue,
+    nullable: false,
   })
   type: AddressType;
 

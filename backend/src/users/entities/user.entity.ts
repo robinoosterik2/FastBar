@@ -45,7 +45,12 @@ export class User {
   @Column({ nullable: false })
   dateOfBirth: Date;
 
-  @Column({ enum: Status, default: Status.ACTIVE, nullable: false })
+  @Column({
+    type: 'enum',
+    enum: Status,
+    default: Status.ACTIVE,
+    nullable: false,
+  })
   status: Status;
 
   @CreateDateColumn({ type: 'timestamptz' })
