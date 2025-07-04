@@ -1,7 +1,6 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
   OneToOne,
   JoinColumn,
   OneToMany,
@@ -9,14 +8,13 @@ import {
   JoinTable,
   BeforeInsert,
   BeforeUpdate,
-  CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 import type { Settings } from './settings.entity';
 import type { Role } from 'src/roles/entities/role.entity';
 import type { Order } from 'src/order/entities/order.entity';
 import type { Payment } from 'src/payment/entities/payment.entity';
 import type { AuditLog } from 'src/audit-log/entities/audit-log.entity';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 export enum Status {
   ACTIVE = 'active',
@@ -26,10 +24,7 @@ export enum Status {
 }
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class User extends BaseEntity {
   @Column({ nullable: false })
   firstName: string;
 
@@ -52,15 +47,6 @@ export class User {
     nullable: false,
   })
   status: Status;
-
-  @CreateDateColumn({ type: 'timestamptz' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
-
-  @Column({ nullable: true })
-  deletedAt: Date;
 
   @Column({ default: false, nullable: false })
   emailVerified: boolean;
@@ -89,15 +75,6 @@ export class User {
 
   @OneToMany('AuditLog', (auditLog: AuditLog) => auditLog.performedBy)
   auditLogs: AuditLog[];
-
-  @BeforeInsert()
-  @BeforeUpdate()
-  updateDates() {
-    this.updatedAt = new Date();
-    if (!this.createdAt) {
-      this.createdAt = new Date();
-    }
-  }
 
   @BeforeInsert()
   @BeforeUpdate()

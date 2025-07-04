@@ -3,19 +3,14 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 import type { Venue } from 'src/venue/entities/venue.entity';
 import type { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
 import type { Order } from 'src/order/entities/order.entity';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 @Entity()
-export class Bar {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Bar extends BaseEntity {
   @Column({ nullable: false })
   name: string;
 
@@ -33,13 +28,4 @@ export class Bar {
 
   @ManyToOne('Venue', (venue: Venue) => venue.bars)
   venue: Venue;
-
-  @CreateDateColumn({ type: 'timestamptz' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
-
-  @Column({ nullable: true })
-  deletedAt: Date;
 }

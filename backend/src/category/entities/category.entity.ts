@@ -2,20 +2,14 @@ import {
   Entity,
   Column,
   ManyToMany,
-  PrimaryGeneratedColumn,
-  ManyToOne,
-  CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 import type { Product } from 'src/product/entities/product.entity';
 import type { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
 import type { Venue } from 'src/venue/entities/venue.entity';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 @Entity()
-export class Category {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Category extends BaseEntity {
   @Column({ nullable: false })
   name: string;
 
@@ -25,14 +19,8 @@ export class Category {
   @Column({ nullable: false })
   isActive: boolean;
 
-  @CreateDateColumn({ type: 'timestamptz' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
-
-  @ManyToOne('Venue', (venue: Venue) => venue.categories)
-  venue: Venue;
+  @ManyToMany('Venue', (venue: Venue) => venue.categories)
+  venues: Venue[];
 
   @ManyToMany(
     'CategoryTag',

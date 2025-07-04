@@ -2,11 +2,9 @@ import {
   Column,
   Entity,
   ManyToOne,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 import type { Venue } from 'src/venue/entities/venue.entity';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 export enum AddressType {
   home = 'home',
@@ -17,10 +15,7 @@ export enum AddressType {
 }
 
 @Entity()
-export class Address {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Address extends BaseEntity {
   @ManyToOne('Venue', (venue: Venue) => venue.addresses)
   venue: Venue;
 
@@ -55,10 +50,4 @@ export class Address {
 
   @Column({ nullable: false })
   isDefault: boolean;
-
-  @CreateDateColumn({ type: 'timestamptz' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
 }

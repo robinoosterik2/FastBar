@@ -1,18 +1,9 @@
-import {
-  Column,
-  Entity,
-  PrimaryGeneratedColumn,
-  ManyToMany,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToMany } from 'typeorm';
 import type { Venue } from 'src/venue/entities/venue.entity';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 @Entity()
-export class VenueTag {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class VenueTag extends BaseEntity {
   @Column({ nullable: false })
   name: string;
 
@@ -21,12 +12,6 @@ export class VenueTag {
 
   @Column({ nullable: false, default: true })
   isActive: boolean;
-
-  @CreateDateColumn({ type: 'timestamptz' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
 
   @ManyToMany('Venue', (venue: Venue) => venue.venueTags)
   venues: Venue[];

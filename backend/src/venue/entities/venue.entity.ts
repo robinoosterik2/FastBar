@@ -3,21 +3,16 @@ import {
   Entity,
   ManyToMany,
   OneToMany,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 import type { Bar } from 'src/bar/entities/bar.entity';
 import type { Address } from 'src/address/entities/address.entity';
 import type { VenueTag } from 'src/venue-tag/entities/venue-tag.entity';
 import type { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
 import type { Category } from 'src/category/entities/category.entity';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 @Entity()
-export class Venue {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Venue extends BaseEntity {
   @Column({ nullable: false })
   name: string;
 
@@ -42,7 +37,7 @@ export class Venue {
   @OneToMany('CategoryTag', (categoryTag: CategoryTag) => categoryTag.venue)
   categoryTags: CategoryTag[];
 
-  @OneToMany('Category', (category: Category) => category.venue)
+  @ManyToMany('Category', (category: Category) => category.venues)
   categories: Category[];
 
   @OneToMany('Bar', (bar: Bar) => bar.venue)
@@ -59,10 +54,4 @@ export class Venue {
 
   @Column({ nullable: false })
   isOpen: boolean;
-
-  @CreateDateColumn({ type: 'timestamptz' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
 }

@@ -5,16 +5,11 @@ import {
   Entity,
   ManyToMany,
   ManyToOne,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 @Entity()
-export class CategoryTag {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class CategoryTag extends BaseEntity {
   @Column({ nullable: false })
   name: string;
 
@@ -26,10 +21,4 @@ export class CategoryTag {
 
   @Column({ nullable: false })
   isActive: boolean;
-
-  @CreateDateColumn({ type: 'timestamptz' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
 }

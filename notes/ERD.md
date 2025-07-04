@@ -52,6 +52,7 @@ entity Address {
   + country: string
   + latitude: float
   + longitude: float
+  deletedAt: DateTime [nullable]
   + type: enum (home|work|billing|shipping|venue)
   + isDefault: boolean
   + createdAt: DateTime
@@ -73,6 +74,7 @@ entity Venue {
   + isOpen: boolean
   + createdAt: DateTime
   + updatedAt: DateTime
+  deletedAt: DateTime [nullable]
   + categoryTags: CategoryTag[]
   + venueTags: VenueTag[]
   + bars: Bar[]
@@ -102,6 +104,7 @@ entity Product {
   + alcoholContent: decimal(5,2) [nullable]
   + createdAt: DateTime
   + updatedAt: DateTime
+  + deletedAt: DateTime [nullable]
   + categories: Category[] [FK, nullable]
 }
 
@@ -109,13 +112,14 @@ entity Category {
   + id: uuid [PK]
   + name: string
   + description: string [nullable]
-  + venue: Venue [FK]
-  + parentCategories: Category[] [FK, nullable]
-  + childCategories: Category[] [FK, nullable]
-  + products: Product[] [FK, nullable]
+  + venues: Venue[]
+  + parentCategories: Category[] [nullable]
+  + childCategories: Category[] [nullable]
+  + products: Product[] [nullable]
   + isActive: boolean
   + createdAt: DateTime
   + updatedAt: DateTime
+  + deletedAt: DateTime [nullable]
   + categoryTags: CategoryTag[]
 }
 
@@ -209,6 +213,7 @@ entity CategoryTag {
   + isActive: boolean
   + createdAt: DateTime
   + updatedAt: DateTime
+  + deletedAt: DateTime [nullable]
 }
 
 entity VenueTag {
@@ -219,6 +224,7 @@ entity VenueTag {
   + isActive: boolean
   + createdAt: DateTime
   + updatedAt: DateTime
+  + deletedAt: DateTime [nullable]
 }
 
 User }o--o{ Role : has

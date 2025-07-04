@@ -3,19 +3,14 @@ import {
   Entity,
   ManyToMany,
   OneToMany,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 import type { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
 import type { Category } from 'src/category/entities/category.entity';
 import type { OrderProduct } from 'src/order-product/entities/order-product.entity';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 @Entity()
-export class Product {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Product extends BaseEntity {
   @Column({ nullable: false })
   name: string;
 
@@ -36,12 +31,6 @@ export class Product {
 
   @Column('decimal', { precision: 5, scale: 2, nullable: true })
   alcoholContent: number;
-
-  @CreateDateColumn({ type: 'timestamptz' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
 
   @OneToMany(
     'ProductToBar',

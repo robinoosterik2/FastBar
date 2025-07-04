@@ -1,19 +1,10 @@
-import {
-  Column,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-  OneToMany,
-  OneToOne,
-  CreateDateColumn,
-  UpdateDateColumn,
-  DeleteDateColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany, OneToOne } from 'typeorm';
 import type { Bar } from 'src/bar/entities/bar.entity';
 import type { OrderProduct } from 'src/order-product/entities/order-product.entity';
 import type { User } from 'src/users/entities/user.entity';
 import type { Payment } from 'src/payment/entities/payment.entity';
 import { JoinColumn } from 'typeorm';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 export enum OrderStatus {
   PENDING = 'pending',
@@ -25,10 +16,7 @@ export enum OrderStatus {
 }
 
 @Entity()
-export class Order {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Order extends BaseEntity {
   @Column({ nullable: false })
   orderNumber: string;
 
@@ -55,15 +43,6 @@ export class Order {
 
   @Column({ nullable: true })
   completedAt: Date;
-
-  @CreateDateColumn({ type: 'timestamptz' })
-  createdAt: Date;
-
-  @UpdateDateColumn({ type: 'timestamptz' })
-  updatedAt: Date;
-
-  @DeleteDateColumn({ type: 'timestamptz' })
-  deletedAt: Date;
 
   @OneToMany('OrderProduct', (orderProduct: OrderProduct) => orderProduct.order)
   orderProducts: OrderProduct[];
