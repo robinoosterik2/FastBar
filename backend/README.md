@@ -1,54 +1,113 @@
-## Description
+# FastBar Backend
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-[Docs](https://docs.nestjs.com)
+A robust NestJS backend for the FastBar application, providing RESTful APIs and real-time functionality.
 
-## Project setup
+## 🚀 Features
+
+- **RESTful API** built with NestJS
+- **WebSocket** support for real-time features
+- **PostgreSQL** database with TypeORM
+- **JWT Authentication**
+- **Role-based access control**
+- **Validation** using class-validator
+- **API documentation** with Swagger
+
+## 📦 Prerequisites
+
+- Node.js (v16+)
+- pnpm
+- PostgreSQL (v13+)
+
+## 🛠️ Installation
+
+1. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+2. Set up environment variables. Copy `.env.example` to `.env` and update the values:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Run database migrations:
+   ```bash
+   pnpm run migration:run
+   ```
+
+## 🚀 Running the App
 
 ```bash
-$ pnpm install
-```
-
-## Compile and run the project
-
-```bash
-# development
-$ pnpm run start
-
-# watch mode
+# Development
 $ pnpm run start:dev
 
-# production mode
+# Production
+$ pnpm run build
 $ pnpm run start:prod
 ```
 
-## Run tests
+## 🧪 Testing
 
 ```bash
-# unit tests
+# Unit tests
 $ pnpm run test
 
-# e2e tests
+# E2E tests
 $ pnpm run test:e2e
 
-# test coverage
+# Test coverage
 $ pnpm run test:cov
 ```
 
-## Easily create CRUD
+## 📚 API Documentation
 
-To quickly create a CRUD controller with built-in validation, you can use the CLI's CRUD generator:
+When the app is running in development mode, you can access the API documentation at:
 
-```bash
-$ nest g resource [name]
+- Swagger UI: http://localhost:3000/api
+
+## 🏗️ Project Structure
+
+```
+.
+├── src/
+│   ├── auth/               # Authentication module
+│   ├── common/             # Common utilities and decorators
+│   ├── config/             # Configuration files
+│   ├── database/           # Database configuration and migrations
+│   ├── modules/            # Feature modules
+│   ├── app.controller.ts   # Root controller
+│   ├── app.module.ts       # Root module
+│   └── main.ts             # Application entry file
+├── test/                  # Test files
+├── .env.example           # Example environment variables
+└── package.json           # Project dependencies and scripts
 ```
 
-### SUB DOMAINS
+## 🔧 Development
 
-https://stackoverflow.com/questions/19016553/add-subdomain-to-localhost-url
+### Generating Resources
 
-https://docs.nestjs.com/controllers#sub-domain-routing
+To generate a new module with CRUD operations:
 
-### watch out for role guard with web sockets
+```bash
+nest g resource modules/name
+```
 
-https://docs.nestjs.com/guards#binding-guards
+### Database Migrations
+
+```bash
+# Generate new migration
+pnpm run migration:generate MigrationName
+
+# Run migrations
+pnpm run migration:run
+
+# Revert last migration
+pnpm run migration:revert
+```
+
+## 📝 Notes
+
+- [Database Schema](./notes/database-schema.md)
