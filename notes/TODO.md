@@ -14,6 +14,18 @@
 - [ ] Add WebSockets
 - [ ] Add role guard to routes
 
-#### Creating migrations
+##### Creating migrations
 
 https://typeorm.io/docs/advanced-topics/migrations
+
+
+##### Testing
+
+- [ ] Add tests for all endpoints
+- [ ] Add tests for all services
+- [ ] Add tests for all repositories
+
+### Frontend
+- [ ] add documentation (readme)
+
+#### Features
