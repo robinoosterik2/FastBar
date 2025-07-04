@@ -5,12 +5,24 @@ import {
   PrimaryGeneratedColumn,
   OneToMany,
   OneToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
 } from 'typeorm';
-import { Bar } from 'src/bar/entities/bar.entity';
-import { OrderProduct } from 'src/order-product/entities/order-product.entity';
-import { User } from 'src/users/entities/user.entity';
-import { Payment } from 'src/payment/entities/payment.entity';
+import type { Bar } from 'src/bar/entities/bar.entity';
+import type { OrderProduct } from 'src/order-product/entities/order-product.entity';
+import type { User } from 'src/users/entities/user.entity';
+import type { Payment } from 'src/payment/entities/payment.entity';
 import { JoinColumn } from 'typeorm';
+
+export enum OrderStatus {
+  PENDING = 'pending',
+  CONFIRMED = 'confirmed',
+  PREPARING = 'preparing',
+  READY = 'ready',
+  COMPLETED = 'completed',
+  CANCELLED = 'cancelled',
+}
 
 @Entity()
 export class Order {
@@ -35,11 +47,8 @@ export class Order {
   @Column('decimal', { precision: 10, scale: 2, default: 0 })
   total: number;
 
-  @Column({ nullable: false })
-  status: string;
-
-  @Column({ nullable: false })
-  paymentStatus: string;
+  @Column({ enum: OrderStatus, default: OrderStatus.PENDING })
+  status: OrderStatus;
 
   @Column({ nullable: true })
   estimatedReadyTime: Date;
@@ -47,25 +56,25 @@ export class Order {
   @Column({ nullable: true })
   completedAt: Date;
 
-  @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
-  @Column({ nullable: false, default: () => 'now()', type: 'timestamp' })
+  @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 
-  @Column({ nullable: true, default: () => 'now()', type: 'timestamp' })
+  @DeleteDateColumn({ type: 'timestamptz' })
   deletedAt: Date;
 
-  @OneToMany(() => OrderProduct, (orderProduct) => orderProduct.order)
+  @OneToMany('OrderProduct', (orderProduct: OrderProduct) => orderProduct.order)
   orderProducts: OrderProduct[];
 
-  @ManyToOne(() => User, (user) => user.orders)
+  @ManyToOne('User', (user: User) => user.orders, { nullable: true })
   user: User;
 
-  @ManyToOne(() => Bar, (bar) => bar.orders)
+  @ManyToOne('Bar', (bar: Bar) => bar.orders)
   bar: Bar;
 
-  @OneToOne(() => Payment, (payment) => payment.order)
+  @OneToOne('Payment', (payment: Payment) => payment.order, { cascade: true })
   @JoinColumn()
   payment: Payment;
 }

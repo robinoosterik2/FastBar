@@ -1,16 +1,23 @@
-import { Bar } from 'src/bar/entities/bar.entity';
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { Product } from 'src/product/entities/product.entity';
+import type { Bar } from 'src/bar/entities/bar.entity';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import type { Product } from 'src/product/entities/product.entity';
 
 @Entity()
 export class ProductToBar {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Product, (product) => product.productToBars)
+  @ManyToOne('Product', (product: Product) => product.productToBars)
   product: Product;
 
-  @ManyToOne(() => Bar, (bar) => bar.productToBars)
+  @ManyToOne('Bar', (bar: Bar) => bar.productToBars)
   bar: Bar;
 
   @Column({ nullable: true })
@@ -28,9 +35,9 @@ export class ProductToBar {
   @Column({ nullable: true })
   lastRestocked: Date;
 
-  @Column()
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
-  @Column()
+  @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 }

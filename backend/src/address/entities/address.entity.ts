@@ -1,13 +1,28 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Venue } from 'src/venue/entities/venue.entity';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import type { Venue } from 'src/venue/entities/venue.entity';
+
+export enum AddressType {
+  home = 'home',
+  work = 'work',
+  billing = 'billing',
+  shipping = 'shipping',
+  venue = 'venue',
+}
 
 @Entity()
 export class Address {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Venue, (venue) => venue.addresses)
-  venue: Venue[];
+  @ManyToOne('Venue', (venue: Venue) => venue.addresses)
+  venue: Venue;
 
   @Column({ nullable: false })
   street: string;
@@ -30,15 +45,19 @@ export class Address {
   @Column({ nullable: false })
   longitude: number;
 
-  @Column({ nullable: false })
-  type: string;
+  @Column({
+    nullable: false,
+    enum: AddressType,
+    default: AddressType.venue,
+  })
+  type: AddressType;
 
   @Column({ nullable: false })
   isDefault: boolean;
 
-  @Column({ nullable: false })
+  @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
-  @Column({ nullable: false })
+  @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt: Date;
 }
