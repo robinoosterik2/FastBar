@@ -1,7 +1,7 @@
 import "./globals.css";
 
-import { ThemeProvider } from "@/components/theme-provider";
-import { Header } from "@/components/ui/header";
+import { Providers } from "./providers";
+import Header from "@/components/ui/header/header";
 
 export default function RootLayout({
   children,
@@ -13,15 +13,10 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <head />
         <body>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
+          <Providers>
             <Header />
             {children}
-          </ThemeProvider>
+          </Providers>
         </body>
       </html>
     </>

@@ -1,5 +1,6 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "markdown-preview-enhanced.plantumlJarPath": "/home/robin/Downloads/plantuml-1.2025.4.jar"
+  "markdown-preview-enhanced.plantumlJarPath": "/home/robin/Downloads/plantuml-1.2025.4.jar",
+  "css.customData": [".vscode/tailwind.json"]
 }
