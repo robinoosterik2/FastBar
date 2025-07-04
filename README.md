@@ -42,7 +42,7 @@ A modern bar ordering system built with React and NestJS.
    pnpm install
    ```
 
-3. Set up environment variables (see `.env.example` in each directory)
+3. Set up environment variables (see `.env.example`)
 4. Start the development servers:
 
    ```bash
