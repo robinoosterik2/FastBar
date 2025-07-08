@@ -13,6 +13,7 @@
 - [x] Create BaseModel
 - [ ] Add WebSockets
 - [ ] Add role guard to routes
+- [ ] Update github action to optimize, (install eslint only once if possible)
 
 ##### Creating migrations
 
