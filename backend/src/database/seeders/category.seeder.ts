@@ -19,46 +19,53 @@ export class CategorySeeder {
 
   async seed(amount: number) {
     console.log(`Seeding ${amount} categories...`);
+
+    // Load all data once at the beginning
+    const [categoryTags, venues] = await Promise.all([
+      this.categoryTagRepository.find({ relations: ['categories'] }),
+      this.venueRepository.find({ relations: ['categories'] }),
+    ]);
+
     const categories: Category[] = [];
-    const categoryTags = await this.categoryTagRepository.find({
-      relations: ['categories'],
-    });
-    const venues = await this.venueRepository.find({
-      relations: ['categories'],
-    });
+    const batchSize = 100; // Process in batches to avoid memory issues with large datasets
 
-    for (let i = 0; i < amount; i++) {
-      const categoryVenues = faker.helpers.arrayElements(venues, {
-        min: 1,
-        max: 10,
-      });
+    for (let batch = 0; batch < Math.ceil(amount / batchSize); batch++) {
+      const batchStart = batch * batchSize;
+      const batchEnd = Math.min(batchStart + batchSize, amount);
+      const batchCategories: Category[] = [];
 
-      const ct = faker.helpers.arrayElements(categoryTags, {
-        min: 1,
-        max: 10,
-      });
+      // Create categories for this batch
+      for (let i = batchStart; i < batchEnd; i++) {
+        const categoryVenues = faker.helpers.arrayElements(venues, {
+          min: 1,
+          max: 10,
+        });
 
-      const category = this.categoryRepository.create({
-        name: faker.food.adjective(),
-        description: faker.lorem.sentence(),
-        isActive: faker.datatype.boolean(),
-        venues: categoryVenues,
-        categoryTags: ct,
-      });
+        const selectedCategoryTags = faker.helpers.arrayElements(categoryTags, {
+          min: 1,
+          max: 10,
+        });
 
-      categoryVenues.forEach((venue) => {
-        venue.categories.push(category);
-      });
+        const category = this.categoryRepository.create({
+          name: faker.food.adjective(),
+          description: faker.lorem.sentence(),
+          isActive: faker.datatype.boolean(),
+          venues: categoryVenues,
+          categoryTags: selectedCategoryTags,
+        });
 
-      ct.forEach((ct) => {
-        ct.categories.push(category);
-      });
+        batchCategories.push(category);
+      }
 
-      await this.venueRepository.save(categoryVenues);
-      await this.categoryTagRepository.save(ct);
-      categories.push(category);
+      // Save the batch of categories
+      await this.categoryRepository.save(batchCategories);
+      categories.push(...batchCategories);
+
+      console.log(
+        `Seeded batch ${batch + 1}/${Math.ceil(amount / batchSize)} (${batchEnd} categories total)`,
+      );
     }
-    await this.categoryRepository.save(categories);
+
     console.log(`Seeded ${categories.length} categories`);
   }
 }

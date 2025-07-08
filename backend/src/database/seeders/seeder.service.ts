@@ -6,6 +6,11 @@ import { VenueTagSeeder } from './venueTags.seeder';
 import { CategorySeeder } from './category.seeder';
 import { CategoryTagSeeder } from './categoryTags.seeder';
 import { AddressSeeder } from './address.seeder';
+import { ProductSeeder } from './product.seeder';
+import { BarSeeder } from './bar.seeder';
+
+import { OrderSeeder } from './order.seeder';
+import { ProductToBarSeeder } from './product-to-bar.seeder';
 
 @Injectable()
 export class SeederService {
@@ -17,6 +22,10 @@ export class SeederService {
     private readonly categorySeeder: CategorySeeder,
     private readonly categoryTagSeeder: CategoryTagSeeder,
     private readonly addressSeeder: AddressSeeder,
+    private readonly productSeeder: ProductSeeder,
+    private readonly barSeeder: BarSeeder,
+    private readonly orderSeeder: OrderSeeder,
+    private readonly productToBarSeeder: ProductToBarSeeder,
   ) {}
 
   async seed(
@@ -26,6 +35,10 @@ export class SeederService {
     categories: number,
     categoryTags: number,
     addresses: number,
+    products: number,
+    bars: number,
+    orders: number,
+    productToBars: number,
   ): Promise<void> {
     console.log('Seeding started');
 
@@ -37,6 +50,10 @@ export class SeederService {
     await this.categorySeeder.seed(categories);
     await this.roleSeeder.seed();
     await this.userSeeder.seed(users);
+    await this.productSeeder.seed(products);
+    await this.barSeeder.seed(bars);
+    //    await this.orderSeeder.seed(orders);
+//    await this.productToBarSeeder.seed(productToBars);
 
     console.log('Seeding completed');
   }

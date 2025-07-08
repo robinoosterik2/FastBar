@@ -9,6 +9,10 @@ async function bootstrap(
   categories: number,
   categoryTags: number,
   addresses: number,
+  products: number,
+  bars: number,
+  orders: number,
+  productToBars: number,
 ) {
   const app = await NestFactory.createApplicationContext(AppModule);
   const seederService: SeederService = app.get(SeederService);
@@ -21,6 +25,10 @@ async function bootstrap(
       categories,
       categoryTags,
       addresses,
+      products,
+      bars,
+      orders,
+      productToBars,
     );
     console.log('Seeding completed successfully');
   } catch (error) {
@@ -30,4 +38,4 @@ async function bootstrap(
   }
 }
 
-bootstrap(100, 100, 10, 10, 10, 10);
+bootstrap(100, 100, 10, 10, 10, 10, 100, 10, 100, 10);

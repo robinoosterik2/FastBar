@@ -43,7 +43,7 @@ import { SeederModule } from './database/seeders/seeder.module';
         migrations: [__dirname + '/migrations/*{.ts,.js}'],
         migrationsTableName: 'migrations',
         synchronize: configService.get('NODE_ENV') === 'development',
-        logging: configService.get('NODE_ENV') === 'development',
+        logging: false,
         ssl:
           configService.get('NODE_ENV') === 'production'
             ? {

@@ -43,7 +43,7 @@ export class Venue extends BaseEntity {
   addresses: Address[];
 
   @Column('json', { nullable: true })
-  operatingHours: any;
+  operatingHours: string;
 
   @Column({ nullable: false })
   isActive: boolean;

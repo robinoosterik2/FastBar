@@ -5,34 +5,7 @@ import { Venue } from 'src/venue/entities/venue.entity';
 import { faker } from '@faker-js/faker';
 import { VenueTag } from 'src/venue-tag/entities/venue-tag.entity';
 import { Address } from 'src/address/entities/address.entity';
-
-function generateOperatingHours(): string {
-  const days = [
-    'monday',
-    'tuesday',
-    'wednesday',
-    'thursday',
-    'friday',
-    'saturday',
-    'sunday',
-  ];
-  const json = {};
-  for (const day of days) {
-    const start = new Date().setUTCHours(0, 0, 0, 0);
-    const end = faker.date.between({
-      from: start,
-      to: new Date().setUTCHours(23, 59, 59, 999),
-    });
-    json[day] = {
-      open: faker.date.between({
-        from: start,
-        to: end,
-      }),
-      close: end,
-    };
-  }
-  return JSON.stringify(json);
-}
+import { generateOperatingHours } from './utils/generateOperatingHours';
 
 @Injectable()
 export class VenueSeeder {

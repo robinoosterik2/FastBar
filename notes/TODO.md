@@ -18,6 +18,18 @@
 - [ ] in seeder category add parent and child categories
 - [ ] Fix joinTable for relations
 
+###### Seeders:
+
+- [ ] ProductSeeder (for src/product/entities/product.entity.ts)
+- [ ] BarSeeder (for src/bar/entities/bar.entity.ts)
+- [ ] AuditLogSeeder (for src/audit-log/entities/audit-log.entity.ts)
+- [ ] InventoryTransactionSeeder (for src/inventory-transaction/entities/inventory-transaction.entity.ts)
+- [ ] OrderProductSeeder (for src/order-product/entities/order-product.entity.ts)
+- [ ] OrderSeeder (for src/order/entities/order.entity.ts)
+- [ ] PaymentSeeder (for src/payment/entities/payment.entity.ts)
+- [ ] ProductToBarSeeder (for src/product-to-bar/entities/productToBar.entity.ts)
+- [ ] SettingsSeeder (for src/users/entities/settings.entity.ts)
+
 ##### Creating migrations
 
 https://typeorm.io/docs/advanced-topics/migrations

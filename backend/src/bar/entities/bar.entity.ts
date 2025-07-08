@@ -10,7 +10,7 @@ export class Bar extends BaseEntity {
   name: string;
 
   @Column({ type: 'json', nullable: true })
-  operatingHours: JSON;
+  operatingHours: string;
 
   @Column({ nullable: true })
   averagePreparationTime: number;

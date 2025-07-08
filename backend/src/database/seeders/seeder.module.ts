@@ -16,6 +16,15 @@ import { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
 import { Venue } from 'src/venue/entities/venue.entity';
 import { Address } from 'src/address/entities/address.entity';
 import { AddressSeeder } from './address.seeder';
+import { Bar } from 'src/bar/entities/bar.entity';
+import { Order } from 'src/order/entities/order.entity';
+import { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
+import { BarSeeder } from './bar.seeder';
+import { OrderSeeder } from './order.seeder';
+import { ProductToBarSeeder } from './product-to-bar.seeder';
+import { Product } from 'src/product/entities/product.entity';
+import { ProductSeeder } from './product.seeder';
+import { OrderProduct } from 'src/order-product/entities/order-product.entity';
 
 @Module({
   imports: [
@@ -28,6 +37,11 @@ import { AddressSeeder } from './address.seeder';
       VenueTag,
       CategoryTag,
       Address,
+      Bar,
+      Order,
+      ProductToBar,
+      Product,
+      OrderProduct,
     ]),
   ],
   providers: [
@@ -39,6 +53,10 @@ import { AddressSeeder } from './address.seeder';
     CategorySeeder,
     CategoryTagSeeder,
     AddressSeeder,
+    BarSeeder,
+    OrderSeeder,
+    ProductToBarSeeder,
+    ProductSeeder,
   ],
   exports: [SeederService],
 })
