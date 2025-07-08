@@ -37,8 +37,9 @@ export default function Home() {
               href="/features"
               color="primary"
               className="font-bold text-primary-foreground"
-              children={t("common.moreInfo")}
-            />,
+            >
+              {t("common.moreInfo")}
+            </Button>,
           ]}
         />
       </HeroSection>

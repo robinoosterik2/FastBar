@@ -6,7 +6,6 @@ import { Link } from "@/i18n/navigation";
 
 type Props = ComponentProps<typeof HeroButton> & {
   href?: string;
-  children?: React.ReactNode;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   className?: string;
@@ -14,7 +13,6 @@ type Props = ComponentProps<typeof HeroButton> & {
 
 export default function Button({
   href,
-  children,
   startIcon,
   endIcon,
   className = "",
@@ -28,7 +26,7 @@ export default function Button({
       {...props}
     >
       {startIcon && <span className="flex-shrink-0">{startIcon}</span>}
-      {children}
+      {props.children}
       {endIcon && <span className="flex-shrink-0">{endIcon}</span>}
     </HeroButton>
   );
