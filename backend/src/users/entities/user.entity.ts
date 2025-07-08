@@ -9,11 +9,11 @@ import {
   BeforeInsert,
   BeforeUpdate,
 } from 'typeorm';
-import type { Settings } from './settings.entity';
-import type { Role } from 'src/roles/entities/role.entity';
-import type { Order } from 'src/order/entities/order.entity';
-import type { Payment } from 'src/payment/entities/payment.entity';
-import type { AuditLog } from 'src/audit-log/entities/audit-log.entity';
+import { Settings } from './settings.entity';
+import { Role } from 'src/roles/entities/role.entity';
+import { Order } from 'src/order/entities/order.entity';
+import { Payment } from 'src/payment/entities/payment.entity';
+import { AuditLog } from 'src/audit-log/entities/audit-log.entity';
 import { BaseEntity } from 'src/common/entities/base.entity';
 
 export enum Status {
@@ -51,29 +51,26 @@ export class User extends BaseEntity {
   @Column({ default: false, nullable: false })
   emailVerified: boolean;
 
-  @Column({ default: false, nullable: false })
-  phoneVerified: boolean;
-
   @Column({ nullable: true })
   lastLoginAt: Date;
 
-  @OneToOne('Settings', (settings: Settings) => settings.user, {
+  @OneToOne(() => Settings, (settings: Settings) => settings.user, {
     cascade: true,
   })
   @JoinColumn()
   settings: Settings;
 
-  @ManyToMany('Role', (role: Role) => role.users)
+  @ManyToMany(() => Role, (role) => role.users)
   @JoinTable()
   roles: Role[];
 
-  @OneToMany('Order', (order: Order) => order.user)
+  @OneToMany(() => Order, (order: Order) => order.user)
   orders: Order[];
 
-  @OneToMany('Payment', (payment: Payment) => payment.user)
+  @OneToMany(() => Payment, (payment: Payment) => payment.user)
   payments: Payment[];
 
-  @OneToMany('AuditLog', (auditLog: AuditLog) => auditLog.performedBy)
+  @OneToMany(() => AuditLog, (auditLog: AuditLog) => auditLog.performedBy)
   auditLogs: AuditLog[];
 
   @BeforeInsert()

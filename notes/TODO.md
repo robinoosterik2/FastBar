@@ -14,6 +14,9 @@
 - [ ] Add WebSockets
 - [ ] Add role guard to routes
 - [ ] Update github action to optimize, (install eslint only once if possible)
+- [ ] Link Owners and barkeepers to venue
+- [ ] in seeder category add parent and child categories
+- [ ] Fix joinTable for relations
 
 ##### Creating migrations
 

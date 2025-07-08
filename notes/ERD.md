@@ -10,7 +10,6 @@ entity User {
   *dateOfBirth: Date
   *status: enum (active|banned|inactive|pending)
   *emailVerified: boolean
-  *phoneVerified: boolean
   *lastLoginAt: DateTime
   *createdAt: DateTime
   *updatedAt: DateTime

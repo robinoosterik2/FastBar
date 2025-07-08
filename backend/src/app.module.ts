@@ -23,6 +23,7 @@ import { VenueTagModule } from './venue-tag/venue-tag.module';
 import { InventoryTransactionModule } from './inventory-transaction/inventory-transaction.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './config/configuration';
+import { SeederModule } from './database/seeders/seeder.module';
 
 @Module({
   imports: [
@@ -68,6 +69,7 @@ import configuration from './config/configuration';
     CategoryTagModule,
     VenueTagModule,
     InventoryTransactionModule,
+    SeederModule,
   ],
   controllers: [AppController],
   providers: [

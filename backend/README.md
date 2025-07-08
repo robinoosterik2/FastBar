@@ -116,6 +116,12 @@ pnpm run migration:run
 pnpm run migration:revert
 ```
 
+### Database seed
+
+```bash
+docker compose exec -it backend pnpm run seed
+```
+
 ## 📝 Notes
 
 - [Database Schema](./notes/database-schema.md)
