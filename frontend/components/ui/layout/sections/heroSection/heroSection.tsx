@@ -1,4 +1,3 @@
-import Section from "@/components/ui/layout/sections/section";
 import { cn } from "@/lib/utils";
 import { usePageTranslations } from "@/app/hooks/usePageTranslations";
 

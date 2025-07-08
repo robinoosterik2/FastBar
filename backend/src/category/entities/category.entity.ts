@@ -1,8 +1,4 @@
-import {
-  Entity,
-  Column,
-  ManyToMany,
-} from 'typeorm';
+import { Entity, Column, ManyToMany } from 'typeorm';
 import type { Product } from 'src/product/entities/product.entity';
 import type { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
 import type { Venue } from 'src/venue/entities/venue.entity';

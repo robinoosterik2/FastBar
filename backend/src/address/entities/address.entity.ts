@@ -1,8 +1,4 @@
-import {
-  Column,
-  Entity,
-  ManyToOne,
-} from 'typeorm';
+import { Column, Entity, ManyToOne } from 'typeorm';
 import type { Venue } from 'src/venue/entities/venue.entity';
 import { BaseEntity } from 'src/common/entities/base.entity';
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FacebookIcon, InstagramIcon, LinkedinIcon } from "lucide-react";
+// import { FacebookIcon, InstagramIcon, LinkedinIcon } from "lucide-react";
 import { usePageTranslations } from "@/app/hooks/usePageTranslations";
 
 export default function Footer() {
