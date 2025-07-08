@@ -30,10 +30,10 @@ export class Address extends BaseEntity {
   @Column({ nullable: false })
   country: string;
 
-  @Column({ nullable: false })
+  @Column({ type: 'float', nullable: false })
   latitude: number;
 
-  @Column({ nullable: false })
+  @Column({ type: 'float', nullable: false })
   longitude: number;
 
   @Column({

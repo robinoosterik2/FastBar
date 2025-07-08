@@ -30,4 +30,4 @@ async function bootstrap(
   }
 }
 
-bootstrap(100, 100, 10, 10, 10, 100);
+bootstrap(100, 100, 10, 10, 10, 10);

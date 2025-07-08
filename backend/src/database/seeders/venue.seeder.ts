@@ -49,6 +49,7 @@ export class VenueSeeder {
     console.log(`Seeding ${amount} venues...`);
     const venueTags = await this.venueTagRepository.find();
     const addresses = await this.addressRepository.find();
+    const updatedAddresses: Address[] = [];
 
     const venues: Venue[] = [];
     for (let i = 0; i < amount; i++) {
@@ -69,7 +70,7 @@ export class VenueSeeder {
       });
       address.venue = venue;
       venues.push(venue);
-      venues.push(venue);
+      updatedAddresses.push(address);
     }
     await this.venueRepository.save(venues);
     await this.addressRepository.save(updatedAddresses);

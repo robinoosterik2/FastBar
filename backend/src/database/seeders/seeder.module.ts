@@ -14,6 +14,8 @@ import { Category } from 'src/category/entities/category.entity';
 import { VenueTag } from 'src/venue-tag/entities/venue-tag.entity';
 import { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
 import { Venue } from 'src/venue/entities/venue.entity';
+import { Address } from 'src/address/entities/address.entity';
+import { AddressSeeder } from './address.seeder';
 
 @Module({
   imports: [
@@ -25,6 +27,7 @@ import { Venue } from 'src/venue/entities/venue.entity';
       Venue,
       VenueTag,
       CategoryTag,
+      Address,
     ]),
   ],
   providers: [
@@ -35,6 +38,7 @@ import { Venue } from 'src/venue/entities/venue.entity';
     VenueTagSeeder,
     CategorySeeder,
     CategoryTagSeeder,
+    AddressSeeder,
   ],
   exports: [SeederService],
 })
