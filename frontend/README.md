@@ -40,3 +40,4 @@ https://heroicons.com/
 ## Custom usePageTranslations
 
 I created a custom usePageTranslation that combines the current page with the common translations.
+Even with same keys in common and page it will be fine as the common keys are common.<key>

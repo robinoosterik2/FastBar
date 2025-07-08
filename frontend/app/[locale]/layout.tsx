@@ -1,11 +1,12 @@
 import "../globals.css";
 
 import { Providers } from "@/app/providers";
-import Header from "@/components/ui/header/header";
+import Header from "@/components/ui/layout/header/header";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
+import Footer from "@/components/ui/layout/footer/footer";
 
 export default async function RootLayout({
   children,
@@ -27,8 +28,11 @@ export default async function RootLayout({
           {/* IntLClientProvider needs to be here */}
           <NextIntlClientProvider>
             <Providers>
-              <Header />
-              {children}
+              <div className="flex flex-col h-screen justify-between">
+                <Header />
+                <main className="mb-auto mt-20">{children}</main>
+                <Footer />
+              </div>
             </Providers>
           </NextIntlClientProvider>
         </body>

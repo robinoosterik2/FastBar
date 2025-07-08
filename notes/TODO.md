@@ -18,7 +18,6 @@
 
 https://typeorm.io/docs/advanced-topics/migrations
 
-
 ##### Testing
 
 - [ ] Add tests for all endpoints
@@ -26,6 +25,13 @@ https://typeorm.io/docs/advanced-topics/migrations
 - [ ] Add tests for all repositories
 
 ### Frontend
+
 - [ ] add documentation (readme)
+- [ ] Make it for mobile
 
 #### Features
+
+#### Research
+
+- [ ] Find out how to connect to already existing POS software
+- [ ] Create own POS software?

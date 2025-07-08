@@ -2,12 +2,15 @@
 @import "tw-animate-css";
 @plugin './hero.ts';
 @source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-background: var(--background);
-  --color-text: var(--text);
+  --color-alt-background: var(--alt-background);
+  --color-foreground: var(--foreground);
+  --color-foreground-hover: var(--foreground-hover);
   --color-primary: var(--primary);
   --color-primary-text: var(--primary-text);
   --color-primary-hover: var(--primary-hover);
@@ -17,19 +20,23 @@
 
 :root {
   --background: #fffffe;
-  --text: #2b2c34;
+  --alt-background: #6146ea3f;
+  --foreground: #2b2c34;
+  --foreground-hover: #2b315e;
   --primary: #6246ea;
   --primary-text: #ffffff;
   --primary-hover: #5b21b6;
-  --secondary: #d1d1e9;
+  --secondary: #22c513;
   --tertiary: #e45858;
 }
 .dark {
   --background: #2b2c34;
-  --text: #ffffff;
+  --alt-background: #6146ea3f;
+  --foreground: #ffffff;
+  --foreground-hover: #ffffff;
   --primary: #ffffff;
   --primary-text: #2b2c34;
   --primary-hover: #5b21b6;
-  --secondary: #d1d1e9;
+  --secondary: #22c513;
   --tertiary: #e45858;
 }

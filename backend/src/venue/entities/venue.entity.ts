@@ -1,9 +1,4 @@
-import {
-  Column,
-  Entity,
-  ManyToMany,
-  OneToMany,
-} from 'typeorm';
+import { Column, Entity, ManyToMany, OneToMany } from 'typeorm';
 import type { Bar } from 'src/bar/entities/bar.entity';
 import type { Address } from 'src/address/entities/address.entity';
 import type { VenueTag } from 'src/venue-tag/entities/venue-tag.entity';
@@ -54,4 +49,12 @@ export class Venue extends BaseEntity {
 
   @Column({ nullable: false })
   isOpen: boolean;
+
+  // If true, the venue can be found by users via the app
+  @Column({ default: true })
+  isPublic: boolean;
+
+  // If true the venue is searchable on the landing page
+  @Column({ default: true })
+  isSearchable: boolean;
 }

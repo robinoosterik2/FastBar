@@ -1,13 +1,74 @@
 {
   "home": {
     "home": "Home",
-    "features": "Features",
-    "customers": "Customers",
+    "features": "Oplossingen",
+    "venues": "Klanten",
     "about": "Over ons",
-    "login": "Login",
-    "register": "Register"
+    "hero": {
+      "title": "Skip the Line. Raise the Bar.",
+      "description": "Zeg vaarwel tegen lange rijen en overbelaste bartenders.<br></br> Ons alles-in-één bestelplatform helpt kroegen en clubs meer drankjes te serveren met minder personeel: voor snellere service, hogere omzet en tevreden gasten. Of je nu een volle zaak runt of de gastbeleving wilt verbeteren, onze oplossing zorgt voor moeiteloos bestellen vanaf de telefoon van je gasten: zonder roepen, zonder wachten.",
+      "owners": {
+        "owners": "Bar eigenaar?",
+        "title": "Registreer nu je bar!",
+        "description": "Registreer nu en bespaar tijd en geld met FastBar!",
+        "buttonText": "Meer informatie",
+        "reason": "Waarom registreren? Met FastBar heb je niet alleen beter overzicht van al je data, maar ook een betere beheersing van je bar. Met behulp van bestellen via de telefoon zijn bar medewerkers tot wel 3x sneller met behandelen van bestellingen.",
+        "exampleTitle": "Snellere bestellingen, Blije gasten, hogere omzet.",
+        "exampleDescription": "Met onze live dashboard kun je precies zien wat er in je bar gebeurt. Geen lege koelkasten meer, ontvang meldingen als je bar op voorraad is.",
+        "exampleFooter": "Sluit je aan bij de toekomst van het nachtleven, waar service slim, snel en mobiel is.",
+        "dataTitle": "Data is de nieuwe goud!",
+        "dataDescription": "Bekijk al je data: <br></br> - Verkoop per dag, <br></br> - Omzet per dag, <br></br> - Voorraad, <br></br> - Welke producten zijn populair, <br></br> - en nog veel meer.",
+        "dataFooter": "Optimaliseer je bar met data van FastBar."
+      },
+      "customers": {
+        "customers": "Bar klant?",
+        "title": "Geen zin om te wachten op je drinken? Registreer nu!",
+        "description": "Met behulp van FastBar ben jij sneller terug de dansvloer op!",
+        "buttonText": "Download nu!",
+        "reason": "Waarom FastBar downloaden? Met FastBar ben jij sneller terug de dansvloer op! Niet elke keer dat diegene naast je er pas net staat en veel eerder aan de beurt is."
+      }
+    }
   },
   "common": {
-    "submit": "Submit"
+    "submit": "Submit",
+    "fastbar": "FastBar",
+    "register": "Registreer",
+    "login": "Login",
+    "moreInfo": "Meer informatie",
+    "team": "Ons team"
+  },
+  "about": {
+    "title": "Over FastBar",
+    "storyTitle": "Ons Verhaal",
+    "introduction": "Dit project begon zoals de meeste goede avonden: aan de bar. Als iemand die graag uitging, kende ik de frustratie van in de rij staan voor een drankje terwijl de beste nummers draaiden. Ik dacht dat het anders moest kunnen, dus heb ik het zelf gebouwd. <br></br><br></br> Wat begon als een hobbyproject is uitgegroeid tot een full-stack platform, geschikt voor zowel mobiel als web. Het is ontworpen om kroeg en club-eigenaren te helpen sneller drankjes te serveren en de winst te verhogen met minder personeel, terwijl feestgangers de wachttijd kunnen overslaan en meer tijd hebben om van hun avond te genieten. <br></br><br></br>Ik heb mijn ervaring als vaste klant omgezet in een tool die echte problemen oplost aan beide kanten van de bar. Wat begon als persoonlijke frustratie is nu een product dat het nachtleven voor iedereen verbetert.",
+    "storyDescription": "FastBar is opgericht in 2025 met een simpele missie: de uitgaanservaring revolutioneren. We waren de lange rijen en inefficiënte service in kroegen en clubs beu, en we wisten dat er een betere manier moest zijn. Daarom hebben we FastBar opgericht, een mobiel bestelplatform waarmee klanten hun drankjes kunnen bestellen en betalen vanaf hun telefoon, en waarmee kroegen en clubs hun bestellingen en voorraad gemakkelijk kunnen beheren. Ons doel is om de uitgaanservaring voor iedereen aangenamer te maken, één drankje per keer."
+  },
+  "footer": {
+    "company": "Bedrijf",
+    "about_us": "Over ons",
+    "careers": "Vacatures",
+    "blog": "Blog",
+    "product": "Product",
+    "how_it_works": "Hoe het werkt",
+    "for_bars": "Voor bars",
+    "for_partygoers": "Voor feestgangers",
+    "pricing": "Prijzen",
+    "legal": "Juridisch",
+    "privacy_policy": "Privacybeleid (AVG)",
+    "terms_and_conditions": "Algemene voorwaarden",
+    "cookie_policy": "Cookiebeleid",
+    "contact": "Contact",
+    "contact_text": "Vragen? Neem contact op via",
+    "copyright": "© {year} FastBar. Alle rechten voorbehouden."
+  },
+  "careers": {
+    "title": "Vacatures",
+    "introduction": "Op dit moment zijn we niet aan het werven, maar als je vragen hebt of graag met ons wilt samenwerken, neem dan gerust contact met ons op."
+  },
+  "features": {
+    "features": "Functionaliteiten",
+    "upcomingFeatures": "Opkomende functionaliteiten",
+    "confirmedFeatures": "Bevestigde functionaliteiten",
+    "futureFeatures": "Toekomstige functionaliteiten"
   }
 }
