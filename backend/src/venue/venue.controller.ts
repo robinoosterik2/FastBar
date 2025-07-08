@@ -10,6 +10,7 @@ import {
 import { VenueService } from './venue.service';
 import { _CreateVenueDto } from './dto/create-venue.dto';
 import { _UpdateVenueDto } from './dto/update-venue.dto';
+import { Public } from 'src/auth/auth.guard';
 
 @Controller('venue')
 export class VenueController {
@@ -20,6 +21,7 @@ export class VenueController {
     return this.venueService.create(createVenueDto);
   }
 
+  @Public()
   @Get()
   findAll() {
     return this.venueService.findAll();

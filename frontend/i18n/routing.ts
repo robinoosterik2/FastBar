@@ -38,9 +38,5 @@ export const routing = defineRouting({
       en: "/register",
       nl: "/register",
     },
-    "/team": {
-      en: "/team",
-      nl: "/team",
-    },
   },
 });
