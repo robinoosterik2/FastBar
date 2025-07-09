@@ -34,7 +34,7 @@ export class VenueSeeder {
         website: faker.internet.url(),
         description: faker.lorem.sentence(),
         logo: faker.image.url(),
-        operatingHours: generateOperatingHours(),
+        openingHours: generateOperatingHours(),
         isActive: faker.datatype.boolean(),
         isOpen: faker.datatype.boolean(),
         isPublic: faker.datatype.boolean(),

@@ -77,6 +77,7 @@ entity Venue {
   + categoryTags: CategoryTag[]
   + venueTags: VenueTag[]
   + bars: Bar[]
+  + owner: User [FK]
 }
 
 entity ProductToBar {

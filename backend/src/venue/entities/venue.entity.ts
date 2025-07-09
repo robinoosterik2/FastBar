@@ -1,10 +1,18 @@
-import { Column, Entity, ManyToMany, OneToMany, JoinTable } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToMany,
+  OneToMany,
+  JoinTable,
+  ManyToOne,
+} from 'typeorm';
 import { Bar } from 'src/bar/entities/bar.entity';
 import { Address } from 'src/address/entities/address.entity';
 import { VenueTag } from 'src/venue-tag/entities/venue-tag.entity';
 import { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
 import { Category } from 'src/category/entities/category.entity';
 import { BaseEntity } from 'src/common/entities/base.entity';
+import { User } from 'src/users/entities/user.entity';
 
 @Entity()
 export class Venue extends BaseEntity {
@@ -39,11 +47,17 @@ export class Venue extends BaseEntity {
   @OneToMany(() => Bar, (bar: Bar) => bar.venue)
   bars: Bar[];
 
-  @OneToMany(() => Address, (address: Address) => address.venue)
+  @OneToMany(() => Address, (address: Address) => address.venue, {
+    nullable: true,
+    cascade: true,
+  })
   addresses: Address[];
 
+  @ManyToMany(() => User, (user: User) => user.venues)
+  owner: User[];
+
   @Column('json', { nullable: true })
-  operatingHours: string;
+  openingHours: string;
 
   @Column({ nullable: false })
   isActive: boolean;

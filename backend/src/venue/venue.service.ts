@@ -4,6 +4,8 @@ import { _UpdateVenueDto } from './dto/update-venue.dto';
 import { Venue } from './entities/venue.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { GetVenuesResponseDto } from './dto/venue-response.dto';
+import { GetVenueQueryDto } from './dto/get-venue-query.dto';
 
 @Injectable()
 export class VenueService {
@@ -16,9 +18,36 @@ export class VenueService {
     return 'This action adds a new venue';
   }
 
-  findAll() {
-    const venues = this.venueRepository.find();
-    return venues;
+  async findAll(query: GetVenueQueryDto): Promise<GetVenuesResponseDto> {
+    const { search, page, limit, sortBy, sortOrder } = query;
+
+    const queryBuilder = this.venueRepository
+      .createQueryBuilder('venue')
+      .leftJoinAndSelect('venue.venueTags', 'venueTag');
+
+    if (search) {
+      queryBuilder.andWhere('venue.name ILIKE :search', {
+        search: `%${search}%`,
+      });
+    }
+
+    if (page && limit) {
+      queryBuilder.take(limit).skip((page - 1) * limit);
+    }
+
+    if (sortBy && sortOrder) {
+      queryBuilder.orderBy(`venue.${sortBy}`, sortOrder);
+    }
+
+    const [venues, total] = await queryBuilder.getManyAndCount();
+
+    return {
+      venues,
+      total,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit),
+    };
   }
 
   findOne(id: number) {

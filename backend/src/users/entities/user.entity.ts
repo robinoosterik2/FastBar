@@ -15,6 +15,7 @@ import { Order } from 'src/order/entities/order.entity';
 import { Payment } from 'src/payment/entities/payment.entity';
 import { AuditLog } from 'src/audit-log/entities/audit-log.entity';
 import { BaseEntity } from 'src/common/entities/base.entity';
+import { Venue } from 'src/venue/entities/venue.entity';
 
 export enum Status {
   ACTIVE = 'active',
@@ -72,6 +73,9 @@ export class User extends BaseEntity {
 
   @OneToMany(() => AuditLog, (auditLog: AuditLog) => auditLog.performedBy)
   auditLogs: AuditLog[];
+
+  @ManyToMany(() => Venue, (venue) => venue.owner)
+  venues: Venue[];
 
   @BeforeInsert()
   @BeforeUpdate()

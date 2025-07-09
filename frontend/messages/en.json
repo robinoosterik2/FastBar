@@ -70,5 +70,8 @@
     "upcomingFeatures": "Upcoming features",
     "confirmedFeatures": "Confirmed features",
     "futureFeatures": "Future features"
+  },
+  "venues": {
+    "title": "Venues"
   }
 }

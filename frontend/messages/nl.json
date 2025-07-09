@@ -70,5 +70,9 @@
     "upcomingFeatures": "Opkomende functionaliteiten",
     "confirmedFeatures": "Bevestigde functionaliteiten",
     "futureFeatures": "Toekomstige functionaliteiten"
+  },
+  "venues": {
+    "title": "Klanten",
+    "introduction": ""
   }
 }
