@@ -1,0 +1,77 @@
+{
+  "home": {
+    "home": "Home",
+    "features": "Features",
+    "venues": "Venues",
+    "about": "About us",
+    "hero": {
+      "title": "Skip the Line. Raise the Bar.",
+      "description": "Say goodbye to long lines and overwhelmed bartenders. Our all-in-one mobile and web ordering platform helps bars and clubs serve more drinks with fewer staff: boosting speed, sales, and guest satisfaction. Whether you're running a packed venue or just want to elevate the guest experience, our solution delivers seamless drink ordering straight from your customers’ phones: no shouting, no waiting.",
+      "owners": {
+        "owners": "Bar Owners",
+        "title": "Register your venue!",
+        "description": "Register now and save time and money with FastBar!",
+        "buttonText": "More info",
+        "reason": "Why register? With FastBar, you not only gain better insight into all your data, but also more control over your bar. By enabling phone-based ordering, bar staff can handle orders up to 3x faster.",
+        "exampleTitle": "Faster Orders. Happier Guests. Higher Profits.",
+        "exampleDescription": "With our live dashboard you can see exactly what is happening in your bar. No more empty fridges, receive notifications when your bar is low on stock.",
+        "exampleFooter": "Join the future of nightlife, where service is smart, fast, and mobile.",
+        "dataTitle": "Data is the new gold!",
+        "dataDescription": "View all your data: <br></br> - Sales per day, <br></br> - Profit per day, <br></br> - Stock, <br></br> - Which products are popular, <br></br> - and much much more.",
+        "dataFooter": "Optimize your bars with data from FastBar."
+      },
+      "customers": {
+        "customers": "Bar Customers",
+        "title": "Don't want to wait for your drinks? Register now!",
+        "description": "With the help of FastBar you are back on the dance floor faster!",
+        "buttonText": "Download now!",
+        "reason": "Why download FastBar? With FastBar, you’ll be back on the dance floor faster! No more watching the person next to you, who just arrived, get served before you."
+      }
+    }
+  },
+  "common": {
+    "submit": "Submit",
+    "fastbar": "FastBar",
+    "register": "Register",
+    "login": "Login",
+    "moreInfo": "More info",
+    "team": "Our team"
+  },
+  "about": {
+    "title": "About FastBar",
+    "introduction": "This project started where most good nights do: at the bar. As someone who loved going out, I knew the pain of standing in line for drinks while the best songs were playing. I figured there had to be a better way, so I built it. <br></br><br></br>What began as a hobby project has grown into a full-stack platform, made for both mobile and web. It’s designed to help venue owners serve drinks faster and boost profits with fewer staff, and to let partygoers skip the wait and spend more time enjoying their night. <br></br><br></br>I took my experience as a regular customer and turned it into a tool that solves real problems for both sides of the bar. Now, what started as a personal frustration has become a product that improves nightlife for everyone.",
+    "storyTitle": "Our Story",
+    "storyDescription": "FastBar was founded in 2025 with a simple mission: to revolutionize the nightlife experience. We were tired of long queues and inefficient service in bars and clubs, and we knew there had to be a better way. That's why we created FastBar, a mobile ordering platform that allows customers to order and pay for their drinks from their phones, and for bars to manage their orders and inventory with ease. Our goal is to make the nightlife experience more enjoyable for everyone, one drink at a time."
+  },
+  "footer": {
+    "company": "Company",
+    "about_us": "About us",
+    "careers": "Careers",
+    "blog": "Blog",
+    "product": "Product",
+    "how_it_works": "How it works",
+    "for_bars": "For bars",
+    "for_partygoers": "For partygoers",
+    "pricing": "Pricing",
+    "legal": "Legal",
+    "privacy_policy": "Privacy policy (GDPR)",
+    "terms_and_conditions": "Terms and conditions",
+    "cookie_policy": "Cookie policy",
+    "contact": "Contact",
+    "contact_text": "Questions? Contact us at",
+    "copyright": "© {year} FastBar. All rights reserved."
+  },
+  "careers": {
+    "title": "Careers",
+    "introduction": "Right now we are not hiring, but if you have any questions or want to work with us, please don't hesitate to contact us."
+  },
+  "features": {
+    "features": "Features",
+    "upcomingFeatures": "Upcoming features",
+    "confirmedFeatures": "Confirmed features",
+    "futureFeatures": "Future features"
+  },
+  "venues": {
+    "title": "Venues"
+  }
+}

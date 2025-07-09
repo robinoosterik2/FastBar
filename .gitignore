@@ -1,3 +1,4 @@
 pgdata
 .env
 postgres_data
+.vscode

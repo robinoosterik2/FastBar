@@ -8,5 +8,6 @@ import { VenueTag } from './entities/venue-tag.entity';
   imports: [TypeOrmModule.forFeature([VenueTag])],
   controllers: [VenueTagController],
   providers: [VenueTagService],
+  exports: [VenueTagService],
 })
 export class VenueTagModule {}

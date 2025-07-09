@@ -6,10 +6,14 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { VenueService } from './venue.service';
 import { _CreateVenueDto } from './dto/create-venue.dto';
 import { _UpdateVenueDto } from './dto/update-venue.dto';
+import { Public } from 'src/auth/auth.guard';
+import { GetVenueQueryDto } from './dto/get-venue-query.dto';
+import { GetVenuesResponseDto } from './dto/venue-response.dto';
 
 @Controller('venue')
 export class VenueController {
@@ -20,9 +24,12 @@ export class VenueController {
     return this.venueService.create(createVenueDto);
   }
 
+  @Public()
   @Get()
-  findAll() {
-    return this.venueService.findAll();
+  async findAll(
+    @Query() query: GetVenueQueryDto,
+  ): Promise<GetVenuesResponseDto> {
+    return this.venueService.findAll(query);
   }
 
   @Get(':id')
