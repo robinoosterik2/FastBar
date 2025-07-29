@@ -6,7 +6,7 @@
     "about": "Over ons",
     "hero": {
       "title": "Skip the Line. Raise the Bar.",
-      "description": "Zeg vaarwel tegen lange rijen en overbelaste bartenders.<br></br> Ons alles-in-één bestelplatform helpt kroegen en clubs meer drankjes te serveren met minder personeel: voor snellere service, hogere omzet en tevreden gasten. Of je nu een volle zaak runt of de gastbeleving wilt verbeteren, onze oplossing zorgt voor moeiteloos bestellen vanaf de telefoon van je gasten: zonder roepen, zonder wachten.",
+      "description": "Zeg vaarwel tegen lange rijen en overbelast barpersoneel.<br></br> Ons alles-in-één bestelplatform helpt kroegen en clubs meer drankjes te serveren met minder personeel: voor snellere service, hogere omzet en tevreden gasten. Of je nu een volle zaak runt of de gastbeleving wilt verbeteren, onze oplossing zorgt voor moeiteloos bestellen vanaf de telefoon van je gasten: zonder roepen, zonder wachten.",
       "owners": {
         "owners": "Bar eigenaar?",
         "title": "Registreer nu je bar!",
@@ -16,8 +16,8 @@
         "exampleTitle": "Snellere bestellingen, Blije gasten, hogere omzet.",
         "exampleDescription": "Met onze live dashboard kun je precies zien wat er in je bar gebeurt. Geen lege koelkasten meer, ontvang meldingen als je bar op voorraad is.",
         "exampleFooter": "Sluit je aan bij de toekomst van het nachtleven, waar service slim, snel en mobiel is.",
-        "dataTitle": "Data is de nieuwe goud!",
-        "dataDescription": "Bekijk al je data: <br></br> - Verkoop per dag, <br></br> - Omzet per dag, <br></br> - Voorraad, <br></br> - Welke producten zijn populair, <br></br> - en nog veel meer.",
+        "dataTitle": "Data is het nieuwe goud!",
+        "dataDescription": "Bekijk al je data: <br></br> - Dagelijkse verkoop, <br></br> - Omzet per dag, <br></br> - Voorraad, <br></br> - Welke producten zijn populair, <br></br> - en nog veel meer.",
         "dataFooter": "Optimaliseer je bar met data van FastBar."
       },
       "customers": {
@@ -35,7 +35,9 @@
     "register": "Registreer",
     "login": "Login",
     "moreInfo": "Meer informatie",
-    "team": "Ons team"
+    "team": "Ons team",
+    "pleaseFill": "Vul alle velden in",
+    "passwordsDoNotMatch": "Wachtwoorden komen niet overeen"
   },
   "about": {
     "title": "Over FastBar",
@@ -74,5 +76,28 @@
   "venues": {
     "title": "Klanten",
     "introduction": ""
+  },
+  "login": {
+    "title": "Inloggen bij FastBar",
+    "newUser": "Nog geen account?",
+    "registerNow": "Registreer nu!"
+  },
+  "register": {
+    "title": "Registreren bij FastBar",
+    "existingUser": "Heb je al een account?",
+    "loginNow": "Log nu in!",
+    "barOwners": "Bar eigenaar?",
+    "barOwnerRegister": "Registreer hier!",
+    "firstName": "Voornaam",
+    "firstNamePlaceholder": "Vul je voornaam in",
+    "lastName": "Achternaam",
+    "lastNamePlaceholder": "Vul je achternaam in",
+    "email": "E-mailadres",
+    "emailPlaceholder": "Vul je e-mailadres in",
+    "emailError": "Vul een geldig e-mailadres in",
+    "password": "Wachtwoord",
+    "passwordPlaceholder": "Kies een wachtwoord",
+    "confirmPassword": "Bevestig wachtwoord",
+    "confirmPasswordPlaceholder": "Bevestig je wachtwoord"
   }
 }

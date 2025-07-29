@@ -36,7 +36,7 @@ export default function Home() {
               key="moreInfo"
               href="/features"
               color="primary"
-              className="font-bold text-primary-foreground"
+              className="font-bold"
             >
               {t("common.moreInfo")}
             </Button>,

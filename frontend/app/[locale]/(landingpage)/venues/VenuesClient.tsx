@@ -10,7 +10,7 @@ export default function VenuesClient({ venuesData }: VenuesClientProps) {
   return (
     <div>
       <h1>{t("title")}</h1>
-      {venuesData.map((venue: any) => (
+      {venuesData.venues.map((venue: any) => (
         <div key={venue.id}>{venue.name}</div>
       ))}
     </div>

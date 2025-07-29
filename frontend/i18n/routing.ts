@@ -36,7 +36,19 @@ export const routing = defineRouting({
     },
     "/register": {
       en: "/register",
-      nl: "/register",
+      nl: "/registreer",
+    },
+    "/register/venue": {
+      en: "/register/venue",
+      nl: "/registreer/bar",
+    },
+    "/terms": {
+      en: "/terms",
+      nl: "/terms",
+    },
+    "/privacy": {
+      en: "/privacy",
+      nl: "/privacy",
     },
   },
 });

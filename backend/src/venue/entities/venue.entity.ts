@@ -1,11 +1,4 @@
-import {
-  Column,
-  Entity,
-  ManyToMany,
-  OneToMany,
-  JoinTable,
-  ManyToOne,
-} from 'typeorm';
+import { Column, Entity, ManyToMany, OneToMany, JoinTable } from 'typeorm';
 import { Bar } from 'src/bar/entities/bar.entity';
 import { Address } from 'src/address/entities/address.entity';
 import { VenueTag } from 'src/venue-tag/entities/venue-tag.entity';

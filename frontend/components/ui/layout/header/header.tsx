@@ -17,11 +17,17 @@ import { Link } from "@/i18n/navigation";
 import Button from "@/components/ui/buttons/button";
 
 export default function Header() {
-  const [isMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { t } = usePageTranslations("home");
 
   return (
-    <Navbar shouldHideOnScroll isBordered className="py-4">
+    <Navbar
+      shouldHideOnScroll
+      isBordered
+      className="py-4"
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarMenuToggle
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         className="lg:hidden"
@@ -62,7 +68,7 @@ export default function Header() {
           <Button
             as={Link}
             href="/register"
-            className="font-bold hidden md:flex bg-primary text-primary-text"
+            className="font-bold hidden md:flex bg-primary"
             variant="flat"
           >
             {t("common.register")}
@@ -76,6 +82,9 @@ export default function Header() {
               color="foreground"
               className="font-bold underline"
               href={item.href}
+              onClick={() => {
+                setIsMenuOpen(false);
+              }}
             >
               {t(item.name)}
             </SmartLink>

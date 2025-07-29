@@ -18,16 +18,33 @@ export default function Button({
   className = "",
   ...props
 }: Props) {
-  return (
-    <HeroButton
-      as={Link}
-      href={href}
-      className={`font-bold text-foreground hover:scale-105 flex items-center gap-2 ${className}`}
-      {...props}
-    >
+  const buttonContent = (
+    <>
       {startIcon && <span className="flex-shrink-0">{startIcon}</span>}
       {props.children}
       {endIcon && <span className="flex-shrink-0">{endIcon}</span>}
+    </>
+  );
+
+  const buttonClassName = `font-bold text-primary-foreground hover:scale-105  flex items-center gap-2 ${className}`;
+
+  if (href) {
+    return (
+      <HeroButton
+        as={Link}
+        href={href}
+        className={buttonClassName}
+        pathname={href}
+        {...props}
+      >
+        {buttonContent}
+      </HeroButton>
+    );
+  }
+
+  return (
+    <HeroButton className={buttonClassName} {...props}>
+      {buttonContent}
     </HeroButton>
   );
 }
