@@ -1,11 +1,7 @@
-import {
-  Entity,
-  Column,
-  ManyToMany,
-} from 'typeorm';
-import type { Product } from 'src/product/entities/product.entity';
-import type { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
-import type { Venue } from 'src/venue/entities/venue.entity';
+import { Entity, Column, ManyToMany, JoinTable } from 'typeorm';
+import { Product } from 'src/product/entities/product.entity';
+import { CategoryTag } from 'src/category-tag/entities/category-tag.entity';
+import { Venue } from 'src/venue/entities/venue.entity';
 import { BaseEntity } from 'src/common/entities/base.entity';
 
 @Entity()
@@ -20,12 +16,14 @@ export class Category extends BaseEntity {
   isActive: boolean;
 
   @ManyToMany('Venue', (venue: Venue) => venue.categories)
+  @JoinTable()
   venues: Venue[];
 
   @ManyToMany(
     'CategoryTag',
     (categoryTag: CategoryTag) => categoryTag.categories,
   )
+  @JoinTable()
   categoryTags: CategoryTag[];
 
   @ManyToMany('Category', (category: Category) => category.parentCategories)
@@ -35,5 +33,6 @@ export class Category extends BaseEntity {
   childCategories: Category[];
 
   @ManyToMany('Product', (product: Product) => product.category)
+  @JoinTable()
   products: Product[];
 }

@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToMany } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToMany } from 'typeorm';
 import type { Venue } from 'src/venue/entities/venue.entity';
 import { BaseEntity } from 'src/common/entities/base.entity';
 

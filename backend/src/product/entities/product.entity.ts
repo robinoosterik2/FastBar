@@ -1,9 +1,4 @@
-import {
-  Column,
-  Entity,
-  ManyToMany,
-  OneToMany,
-} from 'typeorm';
+import { Column, Entity, ManyToMany, OneToMany } from 'typeorm';
 import type { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
 import type { Category } from 'src/category/entities/category.entity';
 import type { OrderProduct } from 'src/order-product/entities/order-product.entity';

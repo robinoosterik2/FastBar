@@ -22,9 +22,14 @@ import { CategoryTagModule } from './category-tag/category-tag.module';
 import { VenueTagModule } from './venue-tag/venue-tag.module';
 import { InventoryTransactionModule } from './inventory-transaction/inventory-transaction.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import configuration from './config/configuration';
+import { SeederModule } from './database/seeders/seeder.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      load: [configuration],
+    }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
@@ -38,7 +43,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         migrations: [__dirname + '/migrations/*{.ts,.js}'],
         migrationsTableName: 'migrations',
         synchronize: configService.get('NODE_ENV') === 'development',
-        logging: configService.get('NODE_ENV') === 'development',
+        logging: false,
         ssl:
           configService.get('NODE_ENV') === 'production'
             ? {
@@ -64,6 +69,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     CategoryTagModule,
     VenueTagModule,
     InventoryTransactionModule,
+    SeederModule,
   ],
   controllers: [AppController],
   providers: [

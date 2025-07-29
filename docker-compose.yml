@@ -16,11 +16,11 @@ services:
     networks:
       - fastbar-network
 
-  app:
+  backend:
     build:
       context: ./backend
       dockerfile: dev.Dockerfile
-    container_name: fastbar-app
+    container_name: fastbar-backend
     env_file:
       - .env
     ports:
@@ -29,6 +29,22 @@ services:
       - db
     volumes:
       - ./backend/src:/app/src
+    networks:
+      - fastbar-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dev.dockerfile
+    container_name: fastbar-frontend
+    env_file:
+      - .env
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
     networks:
       - fastbar-network
 

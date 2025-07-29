@@ -8,5 +8,6 @@ import { CategoryTag } from './entities/category-tag.entity';
   imports: [TypeOrmModule.forFeature([CategoryTag])],
   controllers: [CategoryTagController],
   providers: [CategoryTagService],
+  exports: [CategoryTagService],
 })
 export class CategoryTagModule {}

@@ -1,16 +1,16 @@
-name: ESLint Backend
+name: ESLint
 
 on:
   push:
     branches: [main, develop]
-    paths: ["backend/**"]
+    paths: ["backend/**", "frontend/**"]
   pull_request:
     branches: [main, develop]
-    paths: ["backend/**"]
+    paths: ["backend/**", "frontend/**"]
 
 jobs:
-  eslint:
-    name: Run ESLint
+  eslint-backend:
+    name: Run ESLint Backend
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -31,6 +31,35 @@ jobs:
           node-version: "20"
           cache: "pnpm"
           cache-dependency-path: "./backend/pnpm-lock.yaml"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run ESLint
+        run: pnpm run lint
+
+  eslint-frontend:
+    name: Run ESLint Frontend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: "./frontend/pnpm-lock.yaml"
 
       - name: Install dependencies
         run: pnpm install

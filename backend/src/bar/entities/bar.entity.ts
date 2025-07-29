@@ -1,9 +1,4 @@
-import {
-  Column,
-  Entity,
-  ManyToOne,
-  OneToMany,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 import type { Venue } from 'src/venue/entities/venue.entity';
 import type { ProductToBar } from 'src/product-to-bar/entities/productToBar.entity';
 import type { Order } from 'src/order/entities/order.entity';
@@ -15,7 +10,7 @@ export class Bar extends BaseEntity {
   name: string;
 
   @Column({ type: 'json', nullable: true })
-  operatingHours: JSON;
+  operatingHours: string;
 
   @Column({ nullable: true })
   averagePreparationTime: number;

@@ -23,7 +23,7 @@ export const AppDataSource = new DataSource({
 
   // Development settings
   synchronize: configService.get('NODE_ENV') === 'development',
-  logging: configService.get('NODE_ENV') === 'development',
+  logging: false,
 
   // SSL settings for production
   ssl:

@@ -1,8 +1,4 @@
-import {
-  Column,
-  Entity,
-  ManyToOne,
-} from 'typeorm';
+import { Column, Entity, ManyToOne } from 'typeorm';
 import type { Venue } from 'src/venue/entities/venue.entity';
 import { BaseEntity } from 'src/common/entities/base.entity';
 
@@ -34,10 +30,10 @@ export class Address extends BaseEntity {
   @Column({ nullable: false })
   country: string;
 
-  @Column({ nullable: false })
+  @Column({ type: 'float', nullable: false })
   latitude: number;
 
-  @Column({ nullable: false })
+  @Column({ type: 'float', nullable: false })
   longitude: number;
 
   @Column({
